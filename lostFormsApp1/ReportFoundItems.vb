@@ -1,7 +1,6 @@
 ﻿Public Class ReportFoundItems
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Me.Hide()
-        Dashboard.Show()
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub clearFormBtn_Click(sender As Object, e As EventArgs) Handles clearFormBtn.Click
@@ -19,5 +18,10 @@
 
     Private Sub submitFormBtn_Click(sender As Object, e As EventArgs) Handles submitFormBtn.Click
         MessageBox.Show("Successfully Reported a Found Item")
+    End Sub
+
+    Private Sub bckToLogin_Click(sender As Object, e As EventArgs) Handles bckToLogin.Click
+        Me.Hide()
+        Dashboard.Show()
     End Sub
 End Class

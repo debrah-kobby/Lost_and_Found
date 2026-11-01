@@ -21,7 +21,7 @@
 
     Private Sub reportlostitembtn_Click(sender As Object, e As EventArgs) Handles reportlostitembtn.Click
         ReportLostItems.Show()
-        Me.Hide()
+        Hide()
     End Sub
 
     Private Sub BreportFoundItemBtn_Click(sender As Object, e As EventArgs) Handles reportFoundItemBtn.Click
@@ -39,5 +39,11 @@
         FoundItems.Show()
     End Sub
 
+    Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub PictureBox6_Click(sender As Object, e As EventArgs) Handles PictureBox6.Click
+
+    End Sub
 End Class

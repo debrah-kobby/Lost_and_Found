@@ -1,8 +1,7 @@
 ﻿Public Class ReportLostItems
-    Private Sub backBtn_Click(sender As Object, e As EventArgs) Handles backBtn.Click
+    Private Sub backBtn_Click(sender As Object, e As EventArgs)
         ' Navigate back to Form3
-        Dashboard.Show()
-        Hide()
+
     End Sub
 
 
@@ -22,5 +21,16 @@
 
     Private Sub submitformBtn_Click(sender As Object, e As EventArgs) Handles submitformBtn.Click
         MessageBox.Show("Successfully Reported a Lost Item")
+    End Sub
+
+
+
+    Private Sub bckToLogin_Click(sender As Object, e As EventArgs) Handles bckToLogin.Click
+        Dashboard.Show()
+        Hide()
+    End Sub
+
+    Private Sub pnlFormContent_Paint(sender As Object, e As PaintEventArgs) Handles pnlFormContent.Paint
+
     End Sub
 End Class

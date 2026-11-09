@@ -1,10 +1,4 @@
 ﻿Public Class ReportLostItems
-    Private Sub backBtn_Click(sender As Object, e As EventArgs)
-        ' Navigate back to Form3
-
-    End Sub
-
-
 
     Private Sub clearFormBtn_Click(sender As Object, e As EventArgs) Handles clearFormBtn.Click
         nameInput.Clear()
@@ -24,13 +18,23 @@
     End Sub
 
 
-
-    Private Sub bckToLogin_Click(sender As Object, e As EventArgs) Handles bckToLogin.Click
-        Dashboard.Show()
-        Hide()
+    Private Sub reportFoundItemBtn_Click(sender As Object, e As EventArgs) Handles reportFoundItemBtn.Click
+        Me.Hide()
+        ReportFoundItems.Show()
     End Sub
 
-    Private Sub pnlFormContent_Paint(sender As Object, e As PaintEventArgs) Handles pnlFormContent.Paint
+    Private Sub lostItemBtn_Click(sender As Object, e As EventArgs) Handles lostItemBtn.Click
+        Me.Hide()
+        LostItems.Show()
+    End Sub
 
+    Private Sub foundItemsBtn_Click(sender As Object, e As EventArgs) Handles foundItemsBtn.Click
+        Me.Hide()
+        FoundItems.Show()
+    End Sub
+
+    Private Sub dashboardBtn_Click(sender As Object, e As EventArgs) Handles dashboardBtn.Click
+        Me.Hide()
+        Dashboard.Show()
     End Sub
 End Class

@@ -34,7 +34,7 @@ Partial Class LoginForm
         Label1 = New Label()
         Label2 = New Label()
         Label6 = New Label()
-        Label7 = New Label()
+        signUpLabel = New Label()
         PictureBox2 = New PictureBox()
         Label4 = New Label()
         Label8 = New Label()
@@ -99,13 +99,14 @@ Partial Class LoginForm
         Label5.Location = New Point(466, 49)
         Label5.Margin = New Padding(2, 0, 2, 0)
         Label5.Name = "Label5"
-        Label5.Size = New Size(83, 30)
+        Label5.Size = New Size(76, 30)
         Label5.TabIndex = 5
-        Label5.Text = "Sign In"
+        Label5.Text = "Log In"
         ' 
         ' btnpassword
         ' 
         btnpassword.BackColor = SystemColors.InactiveCaptionText
+        btnpassword.FlatStyle = FlatStyle.Flat
         btnpassword.ForeColor = SystemColors.ButtonHighlight
         btnpassword.Location = New Point(409, 249)
         btnpassword.Margin = New Padding(2)
@@ -158,17 +159,17 @@ Partial Class LoginForm
         Label6.TabIndex = 10
         Label6.Text = "Dont have an account?"
         ' 
-        ' Label7
+        ' signUpLabel
         ' 
-        Label7.AutoSize = True
-        Label7.Font = New Font("Times New Roman", 8F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label7.ForeColor = Color.MediumBlue
-        Label7.Location = New Point(529, 287)
-        Label7.Margin = New Padding(2, 0, 2, 0)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(45, 14)
-        Label7.TabIndex = 11
-        Label7.Text = "Sign Up"
+        signUpLabel.AutoSize = True
+        signUpLabel.Font = New Font("Times New Roman", 8F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        signUpLabel.ForeColor = Color.MediumBlue
+        signUpLabel.Location = New Point(529, 287)
+        signUpLabel.Margin = New Padding(2, 0, 2, 0)
+        signUpLabel.Name = "signUpLabel"
+        signUpLabel.Size = New Size(45, 14)
+        signUpLabel.TabIndex = 11
+        signUpLabel.Text = "Sign Up"
         ' 
         ' PictureBox2
         ' 
@@ -239,7 +240,7 @@ Partial Class LoginForm
         Controls.Add(Label8)
         Controls.Add(Label4)
         Controls.Add(PictureBox2)
-        Controls.Add(Label7)
+        Controls.Add(signUpLabel)
         Controls.Add(Label6)
         Controls.Add(Label2)
         Controls.Add(Label1)
@@ -271,7 +272,7 @@ Partial Class LoginForm
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
+    Friend WithEvents signUpLabel As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label8 As Label

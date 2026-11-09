@@ -53,7 +53,7 @@ Partial Class ReportLostItems
         clearFormBtn = New Button()
         submitformBtn = New Button()
         Panel8 = New Panel()
-        Button1 = New Button()
+        dashboardBtn = New Button()
         myClaimsBtn = New Button()
         PictureBox9 = New PictureBox()
         Button2 = New Button()
@@ -215,7 +215,7 @@ Partial Class ReportLostItems
         ' 
         Panel4.Controls.Add(timeLostPicker)
         Panel4.Controls.Add(timeLostLabel)
-        Panel4.Location = New Point(3, 90)
+        Panel4.Location = New Point(438, 3)
         Panel4.Name = "Panel4"
         Panel4.Size = New Size(129, 84)
         Panel4.TabIndex = 3
@@ -241,7 +241,7 @@ Partial Class ReportLostItems
         ' 
         Panel5.Controls.Add(locationInput)
         Panel5.Controls.Add(locationItemLostLabel)
-        Panel5.Location = New Point(138, 90)
+        Panel5.Location = New Point(3, 93)
         Panel5.Name = "Panel5"
         Panel5.Size = New Size(294, 84)
         Panel5.TabIndex = 4
@@ -268,7 +268,7 @@ Partial Class ReportLostItems
         ' 
         Panel6.Controls.Add(descriptionInput)
         Panel6.Controls.Add(itemDescriptionLabel)
-        Panel6.Location = New Point(3, 180)
+        Panel6.Location = New Point(3, 183)
         Panel6.Name = "Panel6"
         Panel6.Size = New Size(429, 82)
         Panel6.TabIndex = 5
@@ -298,7 +298,7 @@ Partial Class ReportLostItems
         Panel7.Controls.Add(emailLabel)
         Panel7.Controls.Add(phonenumberLabel)
         Panel7.Controls.Add(contactInfoLabel)
-        Panel7.Location = New Point(3, 268)
+        Panel7.Location = New Point(3, 271)
         Panel7.Name = "Panel7"
         Panel7.Size = New Size(429, 100)
         Panel7.TabIndex = 6
@@ -370,8 +370,8 @@ Partial Class ReportLostItems
         ' 
         ' Panel8
         ' 
-        Panel8.BackColor = SystemColors.InactiveCaption
-        Panel8.Controls.Add(Button1)
+        Panel8.BackColor = SystemColors.AppWorkspace
+        Panel8.Controls.Add(dashboardBtn)
         Panel8.Controls.Add(myClaimsBtn)
         Panel8.Controls.Add(PictureBox9)
         Panel8.Controls.Add(Button2)
@@ -394,25 +394,29 @@ Partial Class ReportLostItems
         Panel8.Size = New Size(188, 489)
         Panel8.TabIndex = 15
         ' 
-        ' Button1
+        ' dashboardBtn
         ' 
-        Button1.Location = New Point(39, 80)
-        Button1.Margin = New Padding(2)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(136, 26)
-        Button1.TabIndex = 23
-        Button1.Text = "DASHBOARD"
-        Button1.UseVisualStyleBackColor = True
+        dashboardBtn.BackColor = Color.White
+        dashboardBtn.FlatStyle = FlatStyle.Flat
+        dashboardBtn.Location = New Point(39, 80)
+        dashboardBtn.Margin = New Padding(2)
+        dashboardBtn.Name = "dashboardBtn"
+        dashboardBtn.Size = New Size(136, 26)
+        dashboardBtn.TabIndex = 23
+        dashboardBtn.Text = "DASHBOARD"
+        dashboardBtn.UseVisualStyleBackColor = False
         ' 
         ' myClaimsBtn
         ' 
+        myClaimsBtn.BackColor = Color.White
+        myClaimsBtn.FlatStyle = FlatStyle.Flat
         myClaimsBtn.Location = New Point(39, 378)
         myClaimsBtn.Margin = New Padding(2)
         myClaimsBtn.Name = "myClaimsBtn"
         myClaimsBtn.Size = New Size(136, 26)
         myClaimsBtn.TabIndex = 14
         myClaimsBtn.Text = "MY CLAIMS"
-        myClaimsBtn.UseVisualStyleBackColor = True
+        myClaimsBtn.UseVisualStyleBackColor = False
         ' 
         ' PictureBox9
         ' 
@@ -427,43 +431,51 @@ Partial Class ReportLostItems
         ' 
         ' Button2
         ' 
+        Button2.BackColor = Color.White
+        Button2.FlatStyle = FlatStyle.Flat
         Button2.Location = New Point(39, 449)
         Button2.Margin = New Padding(2)
         Button2.Name = "Button2"
         Button2.Size = New Size(136, 26)
         Button2.TabIndex = 21
         Button2.Text = "PROFILE"
-        Button2.UseVisualStyleBackColor = True
+        Button2.UseVisualStyleBackColor = False
         ' 
         ' lostItemBtn
         ' 
+        lostItemBtn.BackColor = Color.White
+        lostItemBtn.FlatStyle = FlatStyle.Flat
         lostItemBtn.Location = New Point(39, 232)
         lostItemBtn.Margin = New Padding(2)
         lostItemBtn.Name = "lostItemBtn"
         lostItemBtn.Size = New Size(136, 26)
         lostItemBtn.TabIndex = 12
         lostItemBtn.Text = "LOST ITEMS"
-        lostItemBtn.UseVisualStyleBackColor = True
+        lostItemBtn.UseVisualStyleBackColor = False
         ' 
         ' myReportsBtn
         ' 
+        myReportsBtn.BackColor = Color.White
+        myReportsBtn.FlatStyle = FlatStyle.Flat
         myReportsBtn.Location = New Point(39, 330)
         myReportsBtn.Margin = New Padding(2)
         myReportsBtn.Name = "myReportsBtn"
         myReportsBtn.Size = New Size(136, 26)
         myReportsBtn.TabIndex = 13
         myReportsBtn.Text = "MY REPORTS"
-        myReportsBtn.UseVisualStyleBackColor = True
+        myReportsBtn.UseVisualStyleBackColor = False
         ' 
         ' foundItemsBtn
         ' 
+        foundItemsBtn.BackColor = Color.White
+        foundItemsBtn.FlatStyle = FlatStyle.Flat
         foundItemsBtn.Location = New Point(39, 284)
         foundItemsBtn.Margin = New Padding(2)
         foundItemsBtn.Name = "foundItemsBtn"
         foundItemsBtn.Size = New Size(136, 26)
         foundItemsBtn.TabIndex = 11
         foundItemsBtn.Text = "FOUND ITEMS"
-        foundItemsBtn.UseVisualStyleBackColor = True
+        foundItemsBtn.UseVisualStyleBackColor = False
         ' 
         ' PictureBox8
         ' 
@@ -500,13 +512,15 @@ Partial Class ReportLostItems
         ' 
         ' reportFoundItemBtn
         ' 
+        reportFoundItemBtn.BackColor = Color.WhiteSmoke
+        reportFoundItemBtn.FlatStyle = FlatStyle.Flat
         reportFoundItemBtn.Location = New Point(39, 180)
         reportFoundItemBtn.Margin = New Padding(2)
         reportFoundItemBtn.Name = "reportFoundItemBtn"
         reportFoundItemBtn.Size = New Size(136, 26)
         reportFoundItemBtn.TabIndex = 10
         reportFoundItemBtn.Text = "REPORT FOUND ITEM"
-        reportFoundItemBtn.UseVisualStyleBackColor = True
+        reportFoundItemBtn.UseVisualStyleBackColor = False
         ' 
         ' PictureBox5
         ' 
@@ -521,7 +535,8 @@ Partial Class ReportLostItems
         ' 
         ' reportlostitembtn
         ' 
-        reportlostitembtn.BackColor = Color.Navy
+        reportlostitembtn.BackColor = Color.Gray
+        reportlostitembtn.FlatStyle = FlatStyle.Flat
         reportlostitembtn.ForeColor = Color.White
         reportlostitembtn.Location = New Point(39, 130)
         reportlostitembtn.Margin = New Padding(2)
@@ -591,7 +606,7 @@ Partial Class ReportLostItems
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = SystemColors.ActiveCaption
+        BackColor = Color.White
         ClientSize = New Size(784, 503)
         Controls.Add(Panel8)
         Controls.Add(submitformBtn)
@@ -677,5 +692,5 @@ Partial Class ReportLostItems
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents bckToLogin As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents dashboardBtn As Button
 End Class

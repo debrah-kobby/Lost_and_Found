@@ -1,25 +1,27 @@
 ﻿Public Class LostItems
-    Private Sub dashboardBtn_Click(sender As Object, e As EventArgs)
-        Hide
-        Dashboard.Show
+
+    Private Sub reportFoundItemBtn_Click(sender As Object, e As EventArgs) Handles reportFoundItemBtn.Click
+        Me.Hide()
+        ReportFoundItems.Show()
     End Sub
 
-    Private Sub foundItemsBtn_Click(sender As Object, e As EventArgs)
-        Hide
-        FoundItems.Show
+    Private Sub foundItemsBtn_Click_1(sender As Object, e As EventArgs) Handles foundItemsBtn.Click
+        Hide()
+        FoundItems.Show()
     End Sub
 
-    Private Sub reportLostItemsBtn_Click(sender As Object, e As EventArgs)
-        Hide
-        ReportLostItems.Show
+    Private Sub dashboardBtn_Click(sender As Object, e As EventArgs) Handles dashboardBtn.Click
+        Hide()
+        Dashboard.Show()
     End Sub
 
-    Private Sub bckToLoginBtn_Click(sender As Object, e As EventArgs)
-        Hide
-        LoginForm.Show
+    Private Sub reportlostitembtn_Click(sender As Object, e As EventArgs) Handles reportlostitembtn.Click
+        Hide()
+        ReportLostItems.Show()
     End Sub
 
-    Private Sub LostItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    Private Sub bckToLogin_Click(sender As Object, e As EventArgs) Handles bckToLogin.Click
+        Hide()
+        LoginForm.Show()
     End Sub
 End Class

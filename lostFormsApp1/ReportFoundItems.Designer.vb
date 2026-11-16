@@ -56,7 +56,7 @@ Partial Class ReportFoundItems
         dashBoardBtn = New Button()
         myClaimsBtn = New Button()
         PictureBox9 = New PictureBox()
-        Button3 = New Button()
+        myProfileBtn = New Button()
         lostItemBtn = New Button()
         myReportsBtn = New Button()
         foundItemsBtn = New Button()
@@ -369,7 +369,7 @@ Partial Class ReportFoundItems
         Panel9.Controls.Add(dashBoardBtn)
         Panel9.Controls.Add(myClaimsBtn)
         Panel9.Controls.Add(PictureBox9)
-        Panel9.Controls.Add(Button3)
+        Panel9.Controls.Add(myProfileBtn)
         Panel9.Controls.Add(lostItemBtn)
         Panel9.Controls.Add(myReportsBtn)
         Panel9.Controls.Add(foundItemsBtn)
@@ -424,17 +424,17 @@ Partial Class ReportFoundItems
         PictureBox9.TabIndex = 22
         PictureBox9.TabStop = False
         ' 
-        ' Button3
+        ' myProfileBtn
         ' 
-        Button3.BackColor = Color.White
-        Button3.FlatStyle = FlatStyle.Flat
-        Button3.Location = New Point(39, 449)
-        Button3.Margin = New Padding(2)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(136, 26)
-        Button3.TabIndex = 21
-        Button3.Text = "PROFILE"
-        Button3.UseVisualStyleBackColor = False
+        myProfileBtn.BackColor = Color.White
+        myProfileBtn.FlatStyle = FlatStyle.Flat
+        myProfileBtn.Location = New Point(39, 449)
+        myProfileBtn.Margin = New Padding(2)
+        myProfileBtn.Name = "myProfileBtn"
+        myProfileBtn.Size = New Size(136, 26)
+        myProfileBtn.TabIndex = 21
+        myProfileBtn.Text = "PROFILE"
+        myProfileBtn.UseVisualStyleBackColor = False
         ' 
         ' lostItemBtn
         ' 
@@ -674,7 +674,7 @@ Partial Class ReportFoundItems
     Friend WithEvents dashBoardBtn As Button
     Friend WithEvents myClaimsBtn As Button
     Friend WithEvents PictureBox9 As PictureBox
-    Friend WithEvents Button3 As Button
+    Friend WithEvents myProfileBtn As Button
     Friend WithEvents lostItemBtn As Button
     Friend WithEvents myReportsBtn As Button
     Friend WithEvents foundItemsBtn As Button

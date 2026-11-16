@@ -35,8 +35,8 @@ Partial Class Dashboard
         PictureBox2 = New PictureBox()
         Panel2 = New Panel()
         PictureBox9 = New PictureBox()
-        Button2 = New Button()
-        Button1 = New Button()
+        myProfileBtn = New Button()
+        dashBoardBtn = New Button()
         PictureBox8 = New PictureBox()
         PictureBox7 = New PictureBox()
         PictureBox6 = New PictureBox()
@@ -178,10 +178,10 @@ Partial Class Dashboard
         Panel2.BackColor = SystemColors.AppWorkspace
         Panel2.Controls.Add(myClaimsBtn)
         Panel2.Controls.Add(PictureBox9)
-        Panel2.Controls.Add(Button2)
+        Panel2.Controls.Add(myProfileBtn)
         Panel2.Controls.Add(lostItemBtn)
         Panel2.Controls.Add(myReportsBtn)
-        Panel2.Controls.Add(Button1)
+        Panel2.Controls.Add(dashBoardBtn)
         Panel2.Controls.Add(foundItemsBtn)
         Panel2.Controls.Add(PictureBox8)
         Panel2.Controls.Add(PictureBox7)
@@ -210,30 +210,30 @@ Partial Class Dashboard
         PictureBox9.TabIndex = 22
         PictureBox9.TabStop = False
         ' 
-        ' Button2
+        ' myProfileBtn
         ' 
-        Button2.BackColor = Color.White
-        Button2.FlatStyle = FlatStyle.Flat
-        Button2.Location = New Point(39, 449)
-        Button2.Margin = New Padding(2)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(136, 26)
-        Button2.TabIndex = 21
-        Button2.Text = "PROFILE"
-        Button2.UseVisualStyleBackColor = False
+        myProfileBtn.BackColor = Color.White
+        myProfileBtn.FlatStyle = FlatStyle.Flat
+        myProfileBtn.Location = New Point(39, 449)
+        myProfileBtn.Margin = New Padding(2)
+        myProfileBtn.Name = "myProfileBtn"
+        myProfileBtn.Size = New Size(136, 26)
+        myProfileBtn.TabIndex = 21
+        myProfileBtn.Text = "PROFILE"
+        myProfileBtn.UseVisualStyleBackColor = False
         ' 
-        ' Button1
+        ' dashBoardBtn
         ' 
-        Button1.BackColor = SystemColors.AppWorkspace
-        Button1.FlatStyle = FlatStyle.Flat
-        Button1.ForeColor = SystemColors.ControlLightLight
-        Button1.Location = New Point(39, 80)
-        Button1.Margin = New Padding(2)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(136, 24)
-        Button1.TabIndex = 15
-        Button1.Text = "DASHBOARD"
-        Button1.UseVisualStyleBackColor = False
+        dashBoardBtn.BackColor = SystemColors.AppWorkspace
+        dashBoardBtn.FlatStyle = FlatStyle.Flat
+        dashBoardBtn.ForeColor = SystemColors.ControlLightLight
+        dashBoardBtn.Location = New Point(39, 80)
+        dashBoardBtn.Margin = New Padding(2)
+        dashBoardBtn.Name = "dashBoardBtn"
+        dashBoardBtn.Size = New Size(136, 24)
+        dashBoardBtn.TabIndex = 15
+        dashBoardBtn.Text = "DASHBOARD"
+        dashBoardBtn.UseVisualStyleBackColor = False
         ' 
         ' PictureBox8
         ' 
@@ -371,6 +371,6 @@ Partial Class Dashboard
     Friend WithEvents PictureBox6 As PictureBox
     Friend WithEvents PictureBox8 As PictureBox
     Friend WithEvents PictureBox9 As PictureBox
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents myProfileBtn As Button
+    Friend WithEvents dashBoardBtn As Button
 End Class

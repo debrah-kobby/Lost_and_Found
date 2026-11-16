@@ -1,4 +1,5 @@
-﻿Public Class ReportLostItems
+﻿
+Public Class ReportLostItems
 
     Private Sub clearFormBtn_Click(sender As Object, e As EventArgs) Handles clearFormBtn.Click
         nameInput.Clear()
@@ -17,6 +18,7 @@
         MessageBox.Show("Successfully Reported a Lost Item")
     End Sub
 
+    ' NAVIGATION
 
     Private Sub reportFoundItemBtn_Click(sender As Object, e As EventArgs) Handles reportFoundItemBtn.Click
         Me.Hide()
@@ -37,4 +39,20 @@
         Me.Hide()
         Dashboard.Show()
     End Sub
+
+    Private Sub myReportsBtn_Click(sender As Object, e As EventArgs) Handles myReportsBtn.Click
+        Me.Hide()
+        MyReports.Show()
+    End Sub
+
+    Private Sub myClaimsBtn_Click(sender As Object, e As EventArgs) Handles myClaimsBtn.Click
+        Me.Hide()
+        MyClaims.Show()
+    End Sub
+
+    Private Sub myProfileBtn_Click(sender As Object, e As EventArgs) Handles myProfileBtn.Click
+        Me.Hide()
+        MyProfile.Show()
+    End Sub
+
 End Class

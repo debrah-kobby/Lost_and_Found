@@ -27,7 +27,7 @@ Partial Class MyReports
         dashboardBtn = New Button()
         myClaimsBtn = New Button()
         PictureBox9 = New PictureBox()
-        Button2 = New Button()
+        myProfileBtn = New Button()
         lostItemBtn = New Button()
         myReportsBtn = New Button()
         foundItemsBtn = New Button()
@@ -45,23 +45,23 @@ Partial Class MyReports
         Label4 = New Label()
         Label5 = New Label()
         Panel1 = New Panel()
-        Label1 = New Label()
-        Label2 = New Label()
-        Label3 = New Label()
-        Label6 = New Label()
-        Label7 = New Label()
-        Label8 = New Label()
-        Label9 = New Label()
         Label10 = New Label()
+        Label9 = New Label()
+        Label8 = New Label()
+        Label7 = New Label()
+        Label6 = New Label()
+        Label3 = New Label()
+        Label2 = New Label()
+        Label1 = New Label()
         Panel2 = New Panel()
-        Label11 = New Label()
-        ComboBox1 = New ComboBox()
-        DateTimePicker1 = New DateTimePicker()
-        DateTimePicker2 = New DateTimePicker()
-        Label12 = New Label()
-        Label13 = New Label()
-        Label14 = New Label()
         Button1 = New Button()
+        Label14 = New Label()
+        Label13 = New Label()
+        Label12 = New Label()
+        DateTimePicker2 = New DateTimePicker()
+        DateTimePicker1 = New DateTimePicker()
+        ComboBox1 = New ComboBox()
+        Label11 = New Label()
         dgvReports = New DataGridView()
         ReportID = New DataGridViewTextBoxColumn()
         ItemName = New DataGridViewTextBoxColumn()
@@ -94,7 +94,7 @@ Partial Class MyReports
         Panel8.Controls.Add(dashboardBtn)
         Panel8.Controls.Add(myClaimsBtn)
         Panel8.Controls.Add(PictureBox9)
-        Panel8.Controls.Add(Button2)
+        Panel8.Controls.Add(myProfileBtn)
         Panel8.Controls.Add(lostItemBtn)
         Panel8.Controls.Add(myReportsBtn)
         Panel8.Controls.Add(foundItemsBtn)
@@ -149,17 +149,17 @@ Partial Class MyReports
         PictureBox9.TabIndex = 22
         PictureBox9.TabStop = False
         ' 
-        ' Button2
+        ' myProfileBtn
         ' 
-        Button2.BackColor = Color.White
-        Button2.FlatStyle = FlatStyle.Flat
-        Button2.Location = New Point(39, 449)
-        Button2.Margin = New Padding(2)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(136, 26)
-        Button2.TabIndex = 21
-        Button2.Text = "PROFILE"
-        Button2.UseVisualStyleBackColor = False
+        myProfileBtn.BackColor = Color.White
+        myProfileBtn.FlatStyle = FlatStyle.Flat
+        myProfileBtn.Location = New Point(39, 449)
+        myProfileBtn.Margin = New Padding(2)
+        myProfileBtn.Name = "myProfileBtn"
+        myProfileBtn.Size = New Size(136, 26)
+        myProfileBtn.TabIndex = 21
+        myProfileBtn.Text = "PROFILE"
+        myProfileBtn.UseVisualStyleBackColor = False
         ' 
         ' lostItemBtn
         ' 
@@ -360,39 +360,45 @@ Partial Class MyReports
         Panel1.Size = New Size(405, 76)
         Panel1.TabIndex = 19
         ' 
-        ' Label1
+        ' Label10
         ' 
-        Label1.AutoSize = True
-        Label1.FlatStyle = FlatStyle.Flat
-        Label1.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.ForeColor = Color.White
-        Label1.Location = New Point(13, 8)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(86, 17)
-        Label1.TabIndex = 0
-        Label1.Text = "Total Reports"
+        Label10.AutoSize = True
+        Label10.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label10.Location = New Point(327, 33)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(53, 32)
+        Label10.TabIndex = 7
+        Label10.Text = "120"
         ' 
-        ' Label2
+        ' Label9
         ' 
-        Label2.AutoSize = True
-        Label2.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label2.ForeColor = Color.White
-        Label2.Location = New Point(143, 9)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(32, 17)
-        Label2.TabIndex = 1
-        Label2.Text = "Lost"
+        Label9.AutoSize = True
+        Label9.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label9.Location = New Point(227, 33)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(53, 32)
+        Label9.TabIndex = 6
+        Label9.Text = "120"
         ' 
-        ' Label3
+        ' Label8
         ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label3.ForeColor = Color.White
-        Label3.Location = New Point(327, 9)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(44, 17)
-        Label3.TabIndex = 2
-        Label3.Text = "Found"
+        Label8.AutoSize = True
+        Label8.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label8.Location = New Point(133, 33)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(53, 32)
+        Label8.TabIndex = 5
+        Label8.Text = "120"
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label7.Location = New Point(23, 33)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(53, 32)
+        Label7.TabIndex = 4
+        Label7.Text = "120"
         ' 
         ' Label6
         ' 
@@ -405,45 +411,39 @@ Partial Class MyReports
         Label6.TabIndex = 3
         Label6.Text = "Claimed"
         ' 
-        ' Label7
+        ' Label3
         ' 
-        Label7.AutoSize = True
-        Label7.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label7.Location = New Point(23, 33)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(53, 32)
-        Label7.TabIndex = 4
-        Label7.Text = "120"
+        Label3.AutoSize = True
+        Label3.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label3.ForeColor = Color.White
+        Label3.Location = New Point(327, 9)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(44, 17)
+        Label3.TabIndex = 2
+        Label3.Text = "Found"
         ' 
-        ' Label8
+        ' Label2
         ' 
-        Label8.AutoSize = True
-        Label8.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label8.Location = New Point(133, 33)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(53, 32)
-        Label8.TabIndex = 5
-        Label8.Text = "120"
+        Label2.AutoSize = True
+        Label2.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label2.ForeColor = Color.White
+        Label2.Location = New Point(143, 9)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(32, 17)
+        Label2.TabIndex = 1
+        Label2.Text = "Lost"
         ' 
-        ' Label9
+        ' Label1
         ' 
-        Label9.AutoSize = True
-        Label9.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label9.Location = New Point(227, 33)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(53, 32)
-        Label9.TabIndex = 6
-        Label9.Text = "120"
-        ' 
-        ' Label10
-        ' 
-        Label10.AutoSize = True
-        Label10.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label10.Location = New Point(327, 33)
-        Label10.Name = "Label10"
-        Label10.Size = New Size(53, 32)
-        Label10.TabIndex = 7
-        Label10.Text = "120"
+        Label1.AutoSize = True
+        Label1.FlatStyle = FlatStyle.Flat
+        Label1.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.ForeColor = Color.White
+        Label1.Location = New Point(13, 8)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(86, 17)
+        Label1.TabIndex = 0
+        Label1.Text = "Total Reports"
         ' 
         ' Panel2
         ' 
@@ -461,64 +461,16 @@ Partial Class MyReports
         Panel2.Size = New Size(609, 113)
         Panel2.TabIndex = 20
         ' 
-        ' Label11
+        ' Button1
         ' 
-        Label11.AutoSize = True
-        Label11.Font = New Font("Times New Roman", 10F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label11.ForeColor = Color.White
-        Label11.Location = New Point(8, 6)
-        Label11.Margin = New Padding(2, 0, 2, 0)
-        Label11.Name = "Label11"
-        Label11.Size = New Size(86, 16)
-        Label11.TabIndex = 21
-        Label11.Text = "Report Filters"
-        ' 
-        ' ComboBox1
-        ' 
-        ComboBox1.FlatStyle = FlatStyle.Flat
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(7, 58)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(159, 23)
-        ComboBox1.TabIndex = 22
-        ' 
-        ' DateTimePicker1
-        ' 
-        DateTimePicker1.Location = New Point(206, 58)
-        DateTimePicker1.Name = "DateTimePicker1"
-        DateTimePicker1.Size = New Size(129, 23)
-        DateTimePicker1.TabIndex = 23
-        ' 
-        ' DateTimePicker2
-        ' 
-        DateTimePicker2.Location = New Point(363, 58)
-        DateTimePicker2.Name = "DateTimePicker2"
-        DateTimePicker2.Size = New Size(129, 23)
-        DateTimePicker2.TabIndex = 24
-        ' 
-        ' Label12
-        ' 
-        Label12.AutoSize = True
-        Label12.Font = New Font("Times New Roman", 10F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label12.ForeColor = Color.White
-        Label12.Location = New Point(8, 37)
-        Label12.Margin = New Padding(2, 0, 2, 0)
-        Label12.Name = "Label12"
-        Label12.Size = New Size(75, 16)
-        Label12.TabIndex = 25
-        Label12.Text = "Report Type"
-        ' 
-        ' Label13
-        ' 
-        Label13.AutoSize = True
-        Label13.Font = New Font("Times New Roman", 10F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label13.ForeColor = Color.White
-        Label13.Location = New Point(206, 39)
-        Label13.Margin = New Padding(2, 0, 2, 0)
-        Label13.Name = "Label13"
-        Label13.Size = New Size(68, 16)
-        Label13.TabIndex = 26
-        Label13.Text = "From Date"
+        Button1.FlatStyle = FlatStyle.Flat
+        Button1.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Location = New Point(502, 57)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(96, 36)
+        Button1.TabIndex = 28
+        Button1.Text = "Generate"
+        Button1.UseVisualStyleBackColor = True
         ' 
         ' Label14
         ' 
@@ -532,16 +484,64 @@ Partial Class MyReports
         Label14.TabIndex = 27
         Label14.Text = "To Date"
         ' 
-        ' Button1
+        ' Label13
         ' 
-        Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Button1.Location = New Point(502, 57)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(96, 36)
-        Button1.TabIndex = 28
-        Button1.Text = "Generate"
-        Button1.UseVisualStyleBackColor = True
+        Label13.AutoSize = True
+        Label13.Font = New Font("Times New Roman", 10F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label13.ForeColor = Color.White
+        Label13.Location = New Point(206, 39)
+        Label13.Margin = New Padding(2, 0, 2, 0)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(68, 16)
+        Label13.TabIndex = 26
+        Label13.Text = "From Date"
+        ' 
+        ' Label12
+        ' 
+        Label12.AutoSize = True
+        Label12.Font = New Font("Times New Roman", 10F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label12.ForeColor = Color.White
+        Label12.Location = New Point(8, 37)
+        Label12.Margin = New Padding(2, 0, 2, 0)
+        Label12.Name = "Label12"
+        Label12.Size = New Size(75, 16)
+        Label12.TabIndex = 25
+        Label12.Text = "Report Type"
+        ' 
+        ' DateTimePicker2
+        ' 
+        DateTimePicker2.Location = New Point(363, 58)
+        DateTimePicker2.Name = "DateTimePicker2"
+        DateTimePicker2.Size = New Size(129, 23)
+        DateTimePicker2.TabIndex = 24
+        ' 
+        ' DateTimePicker1
+        ' 
+        DateTimePicker1.Location = New Point(206, 58)
+        DateTimePicker1.Name = "DateTimePicker1"
+        DateTimePicker1.Size = New Size(129, 23)
+        DateTimePicker1.TabIndex = 23
+        ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.FlatStyle = FlatStyle.Flat
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Location = New Point(7, 58)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(159, 23)
+        ComboBox1.TabIndex = 22
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.Font = New Font("Times New Roman", 10F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label11.ForeColor = Color.White
+        Label11.Location = New Point(8, 6)
+        Label11.Margin = New Padding(2, 0, 2, 0)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(86, 16)
+        Label11.TabIndex = 21
+        Label11.Text = "Report Filters"
         ' 
         ' dgvReports
         ' 
@@ -669,7 +669,7 @@ Partial Class MyReports
     Friend WithEvents dashboardBtn As Button
     Friend WithEvents myClaimsBtn As Button
     Friend WithEvents PictureBox9 As PictureBox
-    Friend WithEvents Button2 As Button
+    Friend WithEvents myProfileBtn As Button
     Friend WithEvents lostItemBtn As Button
     Friend WithEvents myReportsBtn As Button
     Friend WithEvents foundItemsBtn As Button

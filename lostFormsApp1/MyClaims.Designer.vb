@@ -27,7 +27,7 @@ Partial Class MyClaims
         dashboardBtn = New Button()
         myClaimsBtn = New Button()
         PictureBox9 = New PictureBox()
-        Button2 = New Button()
+        myProfileBtn = New Button()
         lostItemBtn = New Button()
         myReportsBtn = New Button()
         foundItemsBtn = New Button()
@@ -54,15 +54,15 @@ Partial Class MyClaims
         Label2 = New Label()
         Label1 = New Label()
         Panel2 = New Panel()
+        Label15 = New Label()
         Button1 = New Button()
         Label14 = New Label()
-        Label13 = New Label()
         Label12 = New Label()
+        Label13 = New Label()
         DateTimePicker2 = New DateTimePicker()
         DateTimePicker1 = New DateTimePicker()
         ComboBox1 = New ComboBox()
         Label11 = New Label()
-        Label15 = New Label()
         dgvReports = New DataGridView()
         ClaimID = New DataGridViewTextBoxColumn()
         ItemName = New DataGridViewTextBoxColumn()
@@ -72,18 +72,18 @@ Partial Class MyClaims
         Status = New DataGridViewTextBoxColumn()
         Action = New DataGridViewTextBoxColumn()
         Panel3 = New Panel()
-        Label16 = New Label()
-        Label17 = New Label()
-        Label18 = New Label()
-        Label19 = New Label()
-        Label20 = New Label()
-        Label21 = New Label()
-        Label22 = New Label()
-        Label23 = New Label()
-        Label24 = New Label()
-        Label25 = New Label()
-        Label26 = New Label()
         Button3 = New Button()
+        Label26 = New Label()
+        Label25 = New Label()
+        Label24 = New Label()
+        Label23 = New Label()
+        Label22 = New Label()
+        Label21 = New Label()
+        Label20 = New Label()
+        Label19 = New Label()
+        Label18 = New Label()
+        Label17 = New Label()
+        Label16 = New Label()
         Panel8.SuspendLayout()
         CType(PictureBox9, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox8, ComponentModel.ISupportInitialize).BeginInit()
@@ -106,7 +106,7 @@ Partial Class MyClaims
         Panel8.Controls.Add(dashboardBtn)
         Panel8.Controls.Add(myClaimsBtn)
         Panel8.Controls.Add(PictureBox9)
-        Panel8.Controls.Add(Button2)
+        Panel8.Controls.Add(myProfileBtn)
         Panel8.Controls.Add(lostItemBtn)
         Panel8.Controls.Add(myReportsBtn)
         Panel8.Controls.Add(foundItemsBtn)
@@ -161,17 +161,17 @@ Partial Class MyClaims
         PictureBox9.TabIndex = 22
         PictureBox9.TabStop = False
         ' 
-        ' Button2
+        ' myProfileBtn
         ' 
-        Button2.BackColor = Color.White
-        Button2.FlatStyle = FlatStyle.Flat
-        Button2.Location = New Point(39, 449)
-        Button2.Margin = New Padding(2)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(136, 26)
-        Button2.TabIndex = 21
-        Button2.Text = "PROFILE"
-        Button2.UseVisualStyleBackColor = False
+        myProfileBtn.BackColor = Color.White
+        myProfileBtn.FlatStyle = FlatStyle.Flat
+        myProfileBtn.Location = New Point(39, 449)
+        myProfileBtn.Margin = New Padding(2)
+        myProfileBtn.Name = "myProfileBtn"
+        myProfileBtn.Size = New Size(136, 26)
+        myProfileBtn.TabIndex = 21
+        myProfileBtn.Text = "PROFILE"
+        myProfileBtn.UseVisualStyleBackColor = False
         ' 
         ' lostItemBtn
         ' 
@@ -474,6 +474,18 @@ Partial Class MyClaims
         Panel2.Size = New Size(609, 113)
         Panel2.TabIndex = 22
         ' 
+        ' Label15
+        ' 
+        Label15.AutoSize = True
+        Label15.Font = New Font("Times New Roman", 10F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label15.ForeColor = Color.White
+        Label15.Location = New Point(317, 50)
+        Label15.Margin = New Padding(2, 0, 2, 0)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(30, 16)
+        Label15.TabIndex = 29
+        Label15.Text = "To :"
+        ' 
         ' Button1
         ' 
         Button1.FlatStyle = FlatStyle.Flat
@@ -497,18 +509,6 @@ Partial Class MyClaims
         Label14.TabIndex = 27
         Label14.Text = "From :"
         ' 
-        ' Label13
-        ' 
-        Label13.AutoSize = True
-        Label13.Font = New Font("Times New Roman", 10F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label13.ForeColor = Color.White
-        Label13.Location = New Point(77, 69)
-        Label13.Margin = New Padding(2, 0, 2, 0)
-        Label13.Name = "Label13"
-        Label13.Size = New Size(43, 16)
-        Label13.TabIndex = 26
-        Label13.Text = "Date :"
-        ' 
         ' Label12
         ' 
         Label12.AutoSize = True
@@ -520,6 +520,18 @@ Partial Class MyClaims
         Label12.Size = New Size(41, 16)
         Label12.TabIndex = 25
         Label12.Text = "Status"
+        ' 
+        ' Label13
+        ' 
+        Label13.AutoSize = True
+        Label13.Font = New Font("Times New Roman", 10F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label13.ForeColor = Color.White
+        Label13.Location = New Point(77, 69)
+        Label13.Margin = New Padding(2, 0, 2, 0)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(43, 16)
+        Label13.TabIndex = 26
+        Label13.Text = "Date :"
         ' 
         ' DateTimePicker2
         ' 
@@ -555,18 +567,6 @@ Partial Class MyClaims
         Label11.Size = New Size(101, 19)
         Label11.TabIndex = 21
         Label11.Text = "Search Claims"
-        ' 
-        ' Label15
-        ' 
-        Label15.AutoSize = True
-        Label15.Font = New Font("Times New Roman", 10F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label15.ForeColor = Color.White
-        Label15.Location = New Point(317, 50)
-        Label15.Margin = New Padding(2, 0, 2, 0)
-        Label15.Name = "Label15"
-        Label15.Size = New Size(30, 16)
-        Label15.TabIndex = 29
-        Label15.Text = "To :"
         ' 
         ' dgvReports
         ' 
@@ -644,125 +644,16 @@ Partial Class MyClaims
         Panel3.Size = New Size(611, 243)
         Panel3.TabIndex = 24
         ' 
-        ' Label16
+        ' Button3
         ' 
-        Label16.AutoSize = True
-        Label16.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label16.ForeColor = Color.Black
-        Label16.Location = New Point(201, 5)
-        Label16.Margin = New Padding(2, 0, 2, 0)
-        Label16.Name = "Label16"
-        Label16.Size = New Size(159, 19)
-        Label16.TabIndex = 30
-        Label16.Text = "Searched Claim Details"
-        ' 
-        ' Label17
-        ' 
-        Label17.AutoSize = True
-        Label17.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label17.ForeColor = Color.Black
-        Label17.Location = New Point(10, 40)
-        Label17.Margin = New Padding(2, 0, 2, 0)
-        Label17.Name = "Label17"
-        Label17.Size = New Size(77, 19)
-        Label17.TabIndex = 31
-        Label17.Text = "Claim ID :"
-        ' 
-        ' Label18
-        ' 
-        Label18.AutoSize = True
-        Label18.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label18.ForeColor = Color.Black
-        Label18.Location = New Point(12, 79)
-        Label18.Margin = New Padding(2, 0, 2, 0)
-        Label18.Name = "Label18"
-        Label18.Size = New Size(89, 19)
-        Label18.TabIndex = 32
-        Label18.Text = "Item Name :"
-        ' 
-        ' Label19
-        ' 
-        Label19.AutoSize = True
-        Label19.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label19.ForeColor = Color.Black
-        Label19.Location = New Point(13, 116)
-        Label19.Margin = New Padding(2, 0, 2, 0)
-        Label19.Name = "Label19"
-        Label19.Size = New Size(78, 19)
-        Label19.TabIndex = 33
-        Label19.Text = "Category :"
-        ' 
-        ' Label20
-        ' 
-        Label20.AutoSize = True
-        Label20.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label20.ForeColor = Color.Black
-        Label20.Location = New Point(15, 148)
-        Label20.Margin = New Padding(2, 0, 2, 0)
-        Label20.Name = "Label20"
-        Label20.Size = New Size(49, 19)
-        Label20.TabIndex = 34
-        Label20.Text = "Date :"
-        ' 
-        ' Label21
-        ' 
-        Label21.AutoSize = True
-        Label21.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label21.ForeColor = Color.Black
-        Label21.Location = New Point(15, 180)
-        Label21.Margin = New Padding(2, 0, 2, 0)
-        Label21.Name = "Label21"
-        Label21.Size = New Size(58, 19)
-        Label21.TabIndex = 35
-        Label21.Text = "Status :"
-        ' 
-        ' Label22
-        ' 
-        Label22.AutoSize = True
-        Label22.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label22.ForeColor = Color.Black
-        Label22.Location = New Point(176, 40)
-        Label22.Margin = New Padding(2, 0, 2, 0)
-        Label22.Name = "Label22"
-        Label22.Size = New Size(159, 19)
-        Label22.TabIndex = 36
-        Label22.Text = "Searched Claim Details"
-        ' 
-        ' Label23
-        ' 
-        Label23.AutoSize = True
-        Label23.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label23.ForeColor = Color.Black
-        Label23.Location = New Point(176, 79)
-        Label23.Margin = New Padding(2, 0, 2, 0)
-        Label23.Name = "Label23"
-        Label23.Size = New Size(159, 19)
-        Label23.TabIndex = 37
-        Label23.Text = "Searched Claim Details"
-        ' 
-        ' Label24
-        ' 
-        Label24.AutoSize = True
-        Label24.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label24.ForeColor = Color.Black
-        Label24.Location = New Point(176, 116)
-        Label24.Margin = New Padding(2, 0, 2, 0)
-        Label24.Name = "Label24"
-        Label24.Size = New Size(159, 19)
-        Label24.TabIndex = 38
-        Label24.Text = "Searched Claim Details"
-        ' 
-        ' Label25
-        ' 
-        Label25.AutoSize = True
-        Label25.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label25.ForeColor = Color.Black
-        Label25.Location = New Point(176, 148)
-        Label25.Margin = New Padding(2, 0, 2, 0)
-        Label25.Name = "Label25"
-        Label25.Size = New Size(159, 19)
-        Label25.TabIndex = 39
-        Label25.Text = "Searched Claim Details"
+        Button3.BackColor = SystemColors.AppWorkspace
+        Button3.FlatStyle = FlatStyle.Flat
+        Button3.Location = New Point(467, 208)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(123, 23)
+        Button3.TabIndex = 41
+        Button3.Text = "Close"
+        Button3.UseVisualStyleBackColor = False
         ' 
         ' Label26
         ' 
@@ -776,16 +667,125 @@ Partial Class MyClaims
         Label26.TabIndex = 40
         Label26.Text = "Searched Claim Details"
         ' 
-        ' Button3
+        ' Label25
         ' 
-        Button3.BackColor = SystemColors.AppWorkspace
-        Button3.FlatStyle = FlatStyle.Flat
-        Button3.Location = New Point(467, 208)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(123, 23)
-        Button3.TabIndex = 41
-        Button3.Text = "Close"
-        Button3.UseVisualStyleBackColor = False
+        Label25.AutoSize = True
+        Label25.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label25.ForeColor = Color.Black
+        Label25.Location = New Point(176, 148)
+        Label25.Margin = New Padding(2, 0, 2, 0)
+        Label25.Name = "Label25"
+        Label25.Size = New Size(159, 19)
+        Label25.TabIndex = 39
+        Label25.Text = "Searched Claim Details"
+        ' 
+        ' Label24
+        ' 
+        Label24.AutoSize = True
+        Label24.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label24.ForeColor = Color.Black
+        Label24.Location = New Point(176, 116)
+        Label24.Margin = New Padding(2, 0, 2, 0)
+        Label24.Name = "Label24"
+        Label24.Size = New Size(159, 19)
+        Label24.TabIndex = 38
+        Label24.Text = "Searched Claim Details"
+        ' 
+        ' Label23
+        ' 
+        Label23.AutoSize = True
+        Label23.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label23.ForeColor = Color.Black
+        Label23.Location = New Point(176, 79)
+        Label23.Margin = New Padding(2, 0, 2, 0)
+        Label23.Name = "Label23"
+        Label23.Size = New Size(159, 19)
+        Label23.TabIndex = 37
+        Label23.Text = "Searched Claim Details"
+        ' 
+        ' Label22
+        ' 
+        Label22.AutoSize = True
+        Label22.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label22.ForeColor = Color.Black
+        Label22.Location = New Point(176, 40)
+        Label22.Margin = New Padding(2, 0, 2, 0)
+        Label22.Name = "Label22"
+        Label22.Size = New Size(159, 19)
+        Label22.TabIndex = 36
+        Label22.Text = "Searched Claim Details"
+        ' 
+        ' Label21
+        ' 
+        Label21.AutoSize = True
+        Label21.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label21.ForeColor = Color.Black
+        Label21.Location = New Point(15, 180)
+        Label21.Margin = New Padding(2, 0, 2, 0)
+        Label21.Name = "Label21"
+        Label21.Size = New Size(58, 19)
+        Label21.TabIndex = 35
+        Label21.Text = "Status :"
+        ' 
+        ' Label20
+        ' 
+        Label20.AutoSize = True
+        Label20.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label20.ForeColor = Color.Black
+        Label20.Location = New Point(15, 148)
+        Label20.Margin = New Padding(2, 0, 2, 0)
+        Label20.Name = "Label20"
+        Label20.Size = New Size(49, 19)
+        Label20.TabIndex = 34
+        Label20.Text = "Date :"
+        ' 
+        ' Label19
+        ' 
+        Label19.AutoSize = True
+        Label19.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label19.ForeColor = Color.Black
+        Label19.Location = New Point(13, 116)
+        Label19.Margin = New Padding(2, 0, 2, 0)
+        Label19.Name = "Label19"
+        Label19.Size = New Size(78, 19)
+        Label19.TabIndex = 33
+        Label19.Text = "Category :"
+        ' 
+        ' Label18
+        ' 
+        Label18.AutoSize = True
+        Label18.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label18.ForeColor = Color.Black
+        Label18.Location = New Point(12, 79)
+        Label18.Margin = New Padding(2, 0, 2, 0)
+        Label18.Name = "Label18"
+        Label18.Size = New Size(89, 19)
+        Label18.TabIndex = 32
+        Label18.Text = "Item Name :"
+        ' 
+        ' Label17
+        ' 
+        Label17.AutoSize = True
+        Label17.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label17.ForeColor = Color.Black
+        Label17.Location = New Point(10, 40)
+        Label17.Margin = New Padding(2, 0, 2, 0)
+        Label17.Name = "Label17"
+        Label17.Size = New Size(77, 19)
+        Label17.TabIndex = 31
+        Label17.Text = "Claim ID :"
+        ' 
+        ' Label16
+        ' 
+        Label16.AutoSize = True
+        Label16.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label16.ForeColor = Color.Black
+        Label16.Location = New Point(201, 5)
+        Label16.Margin = New Padding(2, 0, 2, 0)
+        Label16.Name = "Label16"
+        Label16.Size = New Size(159, 19)
+        Label16.TabIndex = 30
+        Label16.Text = "Searched Claim Details"
         ' 
         ' MyClaims
         ' 
@@ -827,7 +827,7 @@ Partial Class MyClaims
     Friend WithEvents dashboardBtn As Button
     Friend WithEvents myClaimsBtn As Button
     Friend WithEvents PictureBox9 As PictureBox
-    Friend WithEvents Button2 As Button
+    Friend WithEvents myProfileBtn As Button
     Friend WithEvents lostItemBtn As Button
     Friend WithEvents myReportsBtn As Button
     Friend WithEvents foundItemsBtn As Button

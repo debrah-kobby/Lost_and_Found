@@ -7,6 +7,9 @@ Public Class FoundItems
     ' Prevent filtering while controls are being populated or cleared
     Private isLoadingFilters As Boolean = False
 
+    ' Store the ID of the selected found item
+    Private selectedFoundItemID As Integer = 0
+
 
     ' ==========================================
     ' NAVIGATION
@@ -64,13 +67,120 @@ Public Class FoundItems
             ' Configure DataGridView
             foundItemsGrid.AutoGenerateColumns = False
 
-            foundItemsGrid.Columns("ItemID").DataPropertyName = "ItemID"
-            foundItemsGrid.Columns("ItemName").DataPropertyName = "ItemName"
-            foundItemsGrid.Columns("Category").DataPropertyName = "Category"
-            foundItemsGrid.Columns("LocationFound").DataPropertyName = "LocationFound"
-            foundItemsGrid.Columns("Description").DataPropertyName = "Description"
-            foundItemsGrid.Columns("DateFound").DataPropertyName = "DateFound"
-            foundItemsGrid.Columns("Status").DataPropertyName = "Status"
+            ' Remove existing Designer columns
+            foundItemsGrid.Columns.Clear()
+
+            foundItemsGrid.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect
+
+            foundItemsGrid.MultiSelect = False
+            foundItemsGrid.ReadOnly = True
+            foundItemsGrid.AllowUserToAddRows = False
+            foundItemsGrid.RowHeadersVisible = False
+
+            foundItemsGrid.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill
+
+            ' ------------------------------------------
+            ' ITEM ID COLUMN
+            ' ------------------------------------------
+
+            Dim idColumn As New DataGridViewTextBoxColumn()
+
+            idColumn.Name = "ItemID"
+            idColumn.HeaderText = "Item ID"
+            idColumn.DataPropertyName = "ItemID"
+            idColumn.FillWeight = 50
+
+            foundItemsGrid.Columns.Add(idColumn)
+
+
+            ' ------------------------------------------
+            ' ITEM NAME COLUMN
+            ' ------------------------------------------
+
+            Dim nameColumn As New DataGridViewTextBoxColumn()
+
+            nameColumn.Name = "ItemName"
+            nameColumn.HeaderText = "Item Name"
+            nameColumn.DataPropertyName = "ItemName"
+            nameColumn.FillWeight = 100
+
+            foundItemsGrid.Columns.Add(nameColumn)
+
+
+            ' ------------------------------------------
+            ' CATEGORY COLUMN
+            ' ------------------------------------------
+
+            Dim categoryColumn As New DataGridViewTextBoxColumn()
+
+            categoryColumn.Name = "Category"
+            categoryColumn.HeaderText = "Category"
+            categoryColumn.DataPropertyName = "Category"
+            categoryColumn.FillWeight = 80
+
+            foundItemsGrid.Columns.Add(categoryColumn)
+
+
+            ' ------------------------------------------
+            ' LOCATION COLUMN
+            ' ------------------------------------------
+
+            Dim locationColumn As New DataGridViewTextBoxColumn()
+
+            locationColumn.Name = "LocationFound"
+            locationColumn.HeaderText = "Location Found"
+            locationColumn.DataPropertyName = "LocationFound"
+            locationColumn.FillWeight = 100
+
+            foundItemsGrid.Columns.Add(locationColumn)
+
+
+            ' ------------------------------------------
+            ' DESCRIPTION COLUMN
+            ' ------------------------------------------
+
+            Dim descriptionColumn As New DataGridViewTextBoxColumn()
+
+            descriptionColumn.Name = "Description"
+            descriptionColumn.HeaderText = "Description"
+            descriptionColumn.DataPropertyName = "Description"
+            descriptionColumn.FillWeight = 130
+
+            foundItemsGrid.Columns.Add(descriptionColumn)
+
+
+            ' ------------------------------------------
+            ' DATE FOUND COLUMN
+            ' ------------------------------------------
+
+            Dim dateColumn As New DataGridViewTextBoxColumn()
+
+            dateColumn.Name = "DateFound"
+            dateColumn.HeaderText = "Date Found"
+            dateColumn.DataPropertyName = "DateFound"
+            dateColumn.FillWeight = 85
+
+            foundItemsGrid.Columns.Add(dateColumn)
+
+
+            ' ------------------------------------------
+            ' STATUS COLUMN
+            ' ------------------------------------------
+
+            Dim statusColumn As New DataGridViewTextBoxColumn()
+
+            statusColumn.Name = "Status"
+            statusColumn.HeaderText = "Status"
+            statusColumn.DataPropertyName = "Status"
+            statusColumn.FillWeight = 65
+
+            foundItemsGrid.Columns.Add(statusColumn)
+
+
+            ' Hide claim panel initially
+            claimPanel.Visible = False
 
             ' Load category and location filters
             LoadFilterOptions()
@@ -256,6 +366,150 @@ Public Class FoundItems
 
         ' Reload all found items
         LoadFoundItems()
+
+    End Sub
+
+
+    ' ==========================================
+    ' OPEN CLAIM FORM
+    ' ==========================================
+
+    Private Sub claimItemBtn_Click(sender As Object,
+                                   e As EventArgs) Handles claimItemBtn.Click
+
+        If foundItemsGrid.CurrentRow Is Nothing Then
+
+            MessageBox.Show("Please select an item first.",
+                            "No Item Selected",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning)
+
+            Return
+
+        End If
+
+        Dim selectedRow As DataGridViewRow = foundItemsGrid.CurrentRow
+
+        If selectedRow.IsNewRow Then
+            Return
+        End If
+
+        ' Check item availability
+        Dim itemStatus As String =
+            Convert.ToString(selectedRow.Cells("Status").Value)
+
+        If Not String.Equals(itemStatus, "Available",
+                             StringComparison.OrdinalIgnoreCase) Then
+
+            MessageBox.Show("This item is no longer available for claiming.",
+                            "Item Unavailable",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning)
+
+            Return
+
+        End If
+
+        ' Store selected item's database ID
+        selectedFoundItemID =
+            Convert.ToInt32(selectedRow.Cells("ItemID").Value)
+
+        ' Display selected item name
+        claimItemNameLbl.Text =
+            Convert.ToString(selectedRow.Cells("ItemName").Value)
+
+        ' Clear previous reason
+        claimReasonTxt.Clear()
+
+        ' Display claim panel
+        claimPanel.Visible = True
+
+    End Sub
+
+
+    ' ==========================================
+    ' SUBMIT CLAIM
+    ' ==========================================
+
+    Private Sub submitClaimBtn_Click(sender As Object,
+                                     e As EventArgs) Handles submitClaimBtn.Click
+
+        Dim reason As String = claimReasonTxt.Text.Trim()
+
+        If selectedFoundItemID <= 0 Then
+
+            MessageBox.Show("Please select a valid item.",
+                            "Invalid Item",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning)
+
+            Return
+
+        End If
+
+        If reason = "" Then
+
+            MessageBox.Show("Please explain why you believe this item belongs to you.",
+                            "Reason Required",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning)
+
+            claimReasonTxt.Focus()
+
+            Return
+
+        End If
+
+        Try
+
+            If SubmitClaim(selectedFoundItemID, reason) Then
+
+                MessageBox.Show("Your claim has been submitted successfully. It is now pending admin review.",
+                                "Claim Submitted",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information)
+
+                ' Reset claim form
+                claimPanel.Visible = False
+                selectedFoundItemID = 0
+                claimReasonTxt.Clear()
+
+                ' Refresh found items
+                LoadFoundItems()
+
+            Else
+
+                MessageBox.Show("Unable to submit your claim. The item may no longer be available, or you may already have an active claim for it.",
+                                "Claim Not Submitted",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning)
+
+            End If
+
+        Catch ex As Exception
+
+            MessageBox.Show("An error occurred while submitting your claim: " & ex.Message,
+                            "Submission Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error)
+
+        End Try
+
+    End Sub
+
+
+    ' ==========================================
+    ' CANCEL CLAIM
+    ' ==========================================
+
+    Private Sub cancelClaimBtn_Click(sender As Object,
+                                     e As EventArgs) Handles cancelClaimBtn.Click
+
+        claimPanel.Visible = False
+
+        selectedFoundItemID = 0
+
+        claimReasonTxt.Clear()
 
     End Sub
 

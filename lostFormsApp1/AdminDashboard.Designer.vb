@@ -22,29 +22,31 @@ Partial Class AdminDashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Label1 = New Label()
+        Label2 = New Label()
         SuspendLayout()
         ' 
-        ' Label1
+        ' Label2
         ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(283, 20)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(96, 15)
-        Label1.TabIndex = 0
-        Label1.Text = "Welcome Admin"
+        Label2.AutoSize = True
+        Label2.BackColor = SystemColors.Menu
+        Label2.Font = New Font("Papyrus", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Location = New Point(12, 9)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(398, 30)
+        Label2.TabIndex = 16
+        Label2.Text = "Lost and Found System - Welcome Admin"
         ' 
         ' AdminDashboard
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
-        Controls.Add(Label1)
+        Controls.Add(Label2)
         Name = "AdminDashboard"
         Text = "AdminDashboard"
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
-    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class

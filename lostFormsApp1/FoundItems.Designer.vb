@@ -61,6 +61,12 @@ Partial Class FoundItems
         Status = New DataGridViewTextBoxColumn()
         Contact = New DataGridViewTextBoxColumn()
         clearFilterBtn = New Button()
+        claimPanel = New Panel()
+        cancelClaimBtn = New Button()
+        submitClaimBtn = New Button()
+        claimReasonTxt = New TextBox()
+        claimItemNameLbl = New Label()
+        claimItemBtn = New Button()
         Panel3.SuspendLayout()
         Panel9.SuspendLayout()
         CType(PictureBox9, ComponentModel.ISupportInitialize).BeginInit()
@@ -73,6 +79,7 @@ Partial Class FoundItems
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         CType(foundItemsGrid, ComponentModel.ISupportInitialize).BeginInit()
+        claimPanel.SuspendLayout()
         SuspendLayout()
         ' 
         ' Panel3
@@ -397,7 +404,7 @@ Partial Class FoundItems
         foundItemsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         foundItemsGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         foundItemsGrid.Columns.AddRange(New DataGridViewColumn() {ItemID, ItemName, Category, LocationFound, Description, DateFound, Status, Contact})
-        foundItemsGrid.Location = New Point(209, 303)
+        foundItemsGrid.Location = New Point(209, 299)
         foundItemsGrid.MultiSelect = False
         foundItemsGrid.Name = "foundItemsGrid"
         foundItemsGrid.ReadOnly = True
@@ -463,15 +470,75 @@ Partial Class FoundItems
         clearFilterBtn.Text = "Clear Filters"
         clearFilterBtn.UseVisualStyleBackColor = True
         ' 
+        ' claimPanel
+        ' 
+        claimPanel.Controls.Add(cancelClaimBtn)
+        claimPanel.Controls.Add(submitClaimBtn)
+        claimPanel.Controls.Add(claimReasonTxt)
+        claimPanel.Controls.Add(claimItemNameLbl)
+        claimPanel.Location = New Point(210, 513)
+        claimPanel.Name = "claimPanel"
+        claimPanel.Size = New Size(565, 112)
+        claimPanel.TabIndex = 22
+        claimPanel.Visible = False
+        ' 
+        ' cancelClaimBtn
+        ' 
+        cancelClaimBtn.Location = New Point(431, 74)
+        cancelClaimBtn.Name = "cancelClaimBtn"
+        cancelClaimBtn.Size = New Size(106, 23)
+        cancelClaimBtn.TabIndex = 4
+        cancelClaimBtn.Text = "Cancel Claim"
+        cancelClaimBtn.UseVisualStyleBackColor = True
+        ' 
+        ' submitClaimBtn
+        ' 
+        submitClaimBtn.Location = New Point(290, 77)
+        submitClaimBtn.Name = "submitClaimBtn"
+        submitClaimBtn.Size = New Size(106, 23)
+        submitClaimBtn.TabIndex = 3
+        submitClaimBtn.Text = "Submit Claim"
+        submitClaimBtn.UseVisualStyleBackColor = True
+        ' 
+        ' claimReasonTxt
+        ' 
+        claimReasonTxt.Location = New Point(20, 45)
+        claimReasonTxt.Name = "claimReasonTxt"
+        claimReasonTxt.Size = New Size(538, 23)
+        claimReasonTxt.TabIndex = 2
+        ' 
+        ' claimItemNameLbl
+        ' 
+        claimItemNameLbl.AutoSize = True
+        claimItemNameLbl.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        claimItemNameLbl.Location = New Point(20, 11)
+        claimItemNameLbl.Name = "claimItemNameLbl"
+        claimItemNameLbl.Size = New Size(53, 20)
+        claimItemNameLbl.TabIndex = 1
+        claimItemNameLbl.Text = "Label1"
+        ' 
+        ' claimItemBtn
+        ' 
+        claimItemBtn.FlatStyle = FlatStyle.Flat
+        claimItemBtn.Location = New Point(564, 464)
+        claimItemBtn.Name = "claimItemBtn"
+        claimItemBtn.Size = New Size(83, 23)
+        claimItemBtn.TabIndex = 0
+        claimItemBtn.Text = "Claim Item"
+        claimItemBtn.UseVisualStyleBackColor = True
+        ' 
         ' FoundItems
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        AutoScroll = True
         BackColor = Color.White
-        ClientSize = New Size(800, 499)
+        ClientSize = New Size(849, 499)
+        Controls.Add(claimPanel)
         Controls.Add(clearFilterBtn)
         Controls.Add(foundItemsGrid)
         Controls.Add(Label4)
+        Controls.Add(claimItemBtn)
         Controls.Add(Panel9)
         Controls.Add(Panel3)
         Name = "FoundItems"
@@ -489,6 +556,8 @@ Partial Class FoundItems
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         CType(foundItemsGrid, ComponentModel.ISupportInitialize).EndInit()
+        claimPanel.ResumeLayout(False)
+        claimPanel.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -530,4 +599,10 @@ Partial Class FoundItems
     Friend WithEvents Status As DataGridViewTextBoxColumn
     Friend WithEvents Contact As DataGridViewTextBoxColumn
     Friend WithEvents clearFilterBtn As Button
+    Friend WithEvents claimPanel As Panel
+    Friend WithEvents claimItemNameLbl As Label
+    Friend WithEvents claimItemBtn As Button
+    Friend WithEvents cancelClaimBtn As Button
+    Friend WithEvents submitClaimBtn As Button
+    Friend WithEvents claimReasonTxt As TextBox
 End Class

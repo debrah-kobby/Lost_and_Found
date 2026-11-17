@@ -1,6 +1,16 @@
-﻿Public Class FoundItems
+﻿
+Imports System.Data
+Imports System.Collections.Generic
+
+Public Class FoundItems
+
+    ' Prevent filtering while controls are being populated or cleared
+    Private isLoadingFilters As Boolean = False
 
 
+    ' ==========================================
+    ' NAVIGATION
+    ' ==========================================
 
     Private Sub reportFoundItemBtn_Click(sender As Object, e As EventArgs) Handles reportFoundItemBtn.Click
         Me.Hide()
@@ -41,4 +51,212 @@
         Me.Hide()
         MyProfile.Show()
     End Sub
+
+
+    ' ==========================================
+    ' FORM LOAD
+    ' ==========================================
+
+    Private Sub FoundItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        Try
+
+            ' Configure DataGridView
+            foundItemsGrid.AutoGenerateColumns = False
+
+            foundItemsGrid.Columns("ItemID").DataPropertyName = "ItemID"
+            foundItemsGrid.Columns("ItemName").DataPropertyName = "ItemName"
+            foundItemsGrid.Columns("Category").DataPropertyName = "Category"
+            foundItemsGrid.Columns("LocationFound").DataPropertyName = "LocationFound"
+            foundItemsGrid.Columns("Description").DataPropertyName = "Description"
+            foundItemsGrid.Columns("DateFound").DataPropertyName = "DateFound"
+            foundItemsGrid.Columns("Status").DataPropertyName = "Status"
+
+            ' Load category and location filters
+            LoadFilterOptions()
+
+            ' Display all found items initially
+            LoadFoundItems()
+
+        Catch ex As Exception
+
+            MessageBox.Show("Unable to load found items: " & ex.Message,
+                            "Database Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error)
+
+        End Try
+
+    End Sub
+
+
+    ' ==========================================
+    ' LOAD CATEGORY AND LOCATION FILTERS
+    ' ==========================================
+
+    Private Sub LoadFilterOptions()
+
+        isLoadingFilters = True
+
+        Try
+
+            Dim itemsTable As DataTable = GetFoundItems()
+
+            PopulateComboBox(categoryPicker, itemsTable, "Category")
+            PopulateComboBox(locationPicker, itemsTable, "LocationFound")
+
+        Finally
+
+            isLoadingFilters = False
+
+        End Try
+
+    End Sub
+
+
+    ' ==========================================
+    ' POPULATE COMBOBOX WITH UNIQUE VALUES
+    ' ==========================================
+
+    Private Sub PopulateComboBox(combo As ComboBox,
+                                 itemsTable As DataTable,
+                                 columnName As String)
+
+        Dim uniqueValues As New List(Of String)
+
+        Dim existingValues As New HashSet(Of String)(
+            StringComparer.OrdinalIgnoreCase)
+
+        combo.Items.Clear()
+
+        ' Add option to display all records
+        combo.Items.Add("All")
+
+        For Each itemRow As DataRow In itemsTable.Rows
+
+            Dim value As String = itemRow(columnName).ToString().Trim()
+
+            If value <> "" AndAlso existingValues.Add(value) Then
+                uniqueValues.Add(value)
+            End If
+
+        Next
+
+        ' Sort options alphabetically
+        uniqueValues.Sort()
+
+        For Each value As String In uniqueValues
+            combo.Items.Add(value)
+        Next
+
+        ' Select All by default
+        combo.SelectedIndex = 0
+
+    End Sub
+
+
+    ' ==========================================
+    ' LOAD AND FILTER FOUND ITEMS
+    ' ==========================================
+
+    Private Sub LoadFoundItems()
+
+        Try
+
+            Dim searchName As String = searchFoundName.Text.Trim()
+
+            Dim selectedCategory As String = ""
+
+            If categoryPicker.SelectedIndex > 0 Then
+                selectedCategory = categoryPicker.Text
+            End If
+
+            Dim selectedLocation As String = ""
+
+            If locationPicker.SelectedIndex > 0 Then
+                selectedLocation = locationPicker.Text
+            End If
+
+            ' Retrieve matching records from database
+            foundItemsGrid.DataSource =
+                SearchFoundItems(searchName,
+                                 selectedCategory,
+                                 selectedLocation)
+
+        Catch ex As Exception
+
+            MessageBox.Show("Unable to search found items: " & ex.Message,
+                            "Search Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error)
+
+        End Try
+
+    End Sub
+
+
+    ' ==========================================
+    ' SEARCH WHEN TEXT CHANGES
+    ' ==========================================
+
+    Private Sub searchFoundName_TextChanged(sender As Object,
+                                            e As EventArgs) Handles searchFoundName.TextChanged
+
+        If Not isLoadingFilters Then
+            LoadFoundItems()
+        End If
+
+    End Sub
+
+
+    ' ==========================================
+    ' FILTER WHEN CATEGORY OR LOCATION CHANGES
+    ' ==========================================
+
+    Private Sub filterOptions_SelectedIndexChanged(sender As Object,
+                                                    e As EventArgs) Handles categoryPicker.SelectedIndexChanged,
+                                                                           locationPicker.SelectedIndexChanged
+
+        If Not isLoadingFilters Then
+            LoadFoundItems()
+        End If
+
+    End Sub
+
+
+    ' ==========================================
+    ' CLEAR ALL FILTERS
+    ' ==========================================
+
+    Private Sub clearFilterBtn_Click(sender As Object,
+                                     e As EventArgs) Handles clearFilterBtn.Click
+
+        isLoadingFilters = True
+
+        Try
+
+            ' Clear search textbox
+            searchFoundName.Clear()
+
+            ' Reset category filter
+            If categoryPicker.Items.Count > 0 Then
+                categoryPicker.SelectedIndex = 0
+            End If
+
+            ' Reset location filter
+            If locationPicker.Items.Count > 0 Then
+                locationPicker.SelectedIndex = 0
+            End If
+
+        Finally
+
+            isLoadingFilters = False
+
+        End Try
+
+        ' Reload all found items
+        LoadFoundItems()
+
+    End Sub
+
 End Class

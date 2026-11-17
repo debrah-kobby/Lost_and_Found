@@ -31,19 +31,19 @@ Partial Class SignUpForm
         PictureBox1 = New PictureBox()
         Label5 = New Label()
         Label1 = New Label()
-        txtusername = New TextBox()
+        txtfirstname = New TextBox()
         Username_Label = New Label()
         Label3 = New Label()
-        TextBox1 = New TextBox()
+        txtlastname = New TextBox()
         Label2 = New Label()
-        TextBox2 = New TextBox()
+        txtstudentID = New TextBox()
         Label6 = New Label()
-        TextBox3 = New TextBox()
+        txtemail = New TextBox()
         Label7 = New Label()
         Label11 = New Label()
-        TextBox4 = New TextBox()
-        TextBox5 = New TextBox()
-        btnpassword = New Button()
+        txtpassword = New TextBox()
+        txtconfirmpassword = New TextBox()
+        btnsignup = New Button()
         logInLabel = New Label()
         Label13 = New Label()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
@@ -139,14 +139,14 @@ Partial Class SignUpForm
         Label1.TabIndex = 24
         Label1.Text = "Welcome to Lost and Found!! Enter your details to Sign Up"
         ' 
-        ' txtusername
+        ' txtfirstname
         ' 
-        txtusername.BorderStyle = BorderStyle.FixedSingle
-        txtusername.Location = New Point(376, 142)
-        txtusername.Margin = New Padding(2)
-        txtusername.Name = "txtusername"
-        txtusername.Size = New Size(157, 23)
-        txtusername.TabIndex = 26
+        txtfirstname.BorderStyle = BorderStyle.FixedSingle
+        txtfirstname.Location = New Point(376, 142)
+        txtfirstname.Margin = New Padding(2)
+        txtfirstname.Name = "txtfirstname"
+        txtfirstname.Size = New Size(157, 23)
+        txtfirstname.TabIndex = 26
         ' 
         ' Username_Label
         ' 
@@ -168,14 +168,14 @@ Partial Class SignUpForm
         Label3.TabIndex = 27
         Label3.Text = "Last Name :"
         ' 
-        ' TextBox1
+        ' txtlastname
         ' 
-        TextBox1.BorderStyle = BorderStyle.FixedSingle
-        TextBox1.Location = New Point(605, 142)
-        TextBox1.Margin = New Padding(2)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(157, 23)
-        TextBox1.TabIndex = 28
+        txtlastname.BorderStyle = BorderStyle.FixedSingle
+        txtlastname.Location = New Point(605, 142)
+        txtlastname.Margin = New Padding(2)
+        txtlastname.Name = "txtlastname"
+        txtlastname.Size = New Size(157, 23)
+        txtlastname.TabIndex = 28
         ' 
         ' Label2
         ' 
@@ -187,14 +187,14 @@ Partial Class SignUpForm
         Label2.TabIndex = 29
         Label2.Text = "Student ID :"
         ' 
-        ' TextBox2
+        ' txtstudentID
         ' 
-        TextBox2.BorderStyle = BorderStyle.FixedSingle
-        TextBox2.Location = New Point(376, 216)
-        TextBox2.Margin = New Padding(2)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(157, 23)
-        TextBox2.TabIndex = 30
+        txtstudentID.BorderStyle = BorderStyle.FixedSingle
+        txtstudentID.Location = New Point(376, 216)
+        txtstudentID.Margin = New Padding(2)
+        txtstudentID.Name = "txtstudentID"
+        txtstudentID.Size = New Size(157, 23)
+        txtstudentID.TabIndex = 30
         ' 
         ' Label6
         ' 
@@ -206,14 +206,14 @@ Partial Class SignUpForm
         Label6.TabIndex = 31
         Label6.Text = "Email :"
         ' 
-        ' TextBox3
+        ' txtemail
         ' 
-        TextBox3.BorderStyle = BorderStyle.FixedSingle
-        TextBox3.Location = New Point(605, 216)
-        TextBox3.Margin = New Padding(2)
-        TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(157, 23)
-        TextBox3.TabIndex = 32
+        txtemail.BorderStyle = BorderStyle.FixedSingle
+        txtemail.Location = New Point(605, 216)
+        txtemail.Margin = New Padding(2)
+        txtemail.Name = "txtemail"
+        txtemail.Size = New Size(157, 23)
+        txtemail.TabIndex = 32
         ' 
         ' Label7
         ' 
@@ -235,36 +235,36 @@ Partial Class SignUpForm
         Label11.TabIndex = 34
         Label11.Text = "Confirm Password :"
         ' 
-        ' TextBox4
+        ' txtpassword
         ' 
-        TextBox4.BorderStyle = BorderStyle.FixedSingle
-        TextBox4.Location = New Point(376, 284)
-        TextBox4.Margin = New Padding(2)
-        TextBox4.Name = "TextBox4"
-        TextBox4.Size = New Size(157, 23)
-        TextBox4.TabIndex = 35
+        txtpassword.BorderStyle = BorderStyle.FixedSingle
+        txtpassword.Location = New Point(376, 284)
+        txtpassword.Margin = New Padding(2)
+        txtpassword.Name = "txtpassword"
+        txtpassword.Size = New Size(157, 23)
+        txtpassword.TabIndex = 35
         ' 
-        ' TextBox5
+        ' txtconfirmpassword
         ' 
-        TextBox5.BorderStyle = BorderStyle.FixedSingle
-        TextBox5.Location = New Point(605, 284)
-        TextBox5.Margin = New Padding(2)
-        TextBox5.Name = "TextBox5"
-        TextBox5.Size = New Size(157, 23)
-        TextBox5.TabIndex = 36
+        txtconfirmpassword.BorderStyle = BorderStyle.FixedSingle
+        txtconfirmpassword.Location = New Point(605, 284)
+        txtconfirmpassword.Margin = New Padding(2)
+        txtconfirmpassword.Name = "txtconfirmpassword"
+        txtconfirmpassword.Size = New Size(157, 23)
+        txtconfirmpassword.TabIndex = 36
         ' 
-        ' btnpassword
+        ' btnsignup
         ' 
-        btnpassword.BackColor = SystemColors.InactiveCaptionText
-        btnpassword.FlatStyle = FlatStyle.Flat
-        btnpassword.ForeColor = SystemColors.ButtonHighlight
-        btnpassword.Location = New Point(454, 343)
-        btnpassword.Margin = New Padding(2)
-        btnpassword.Name = "btnpassword"
-        btnpassword.Size = New Size(220, 29)
-        btnpassword.TabIndex = 37
-        btnpassword.Text = "Sign in"
-        btnpassword.UseVisualStyleBackColor = False
+        btnsignup.BackColor = SystemColors.InactiveCaptionText
+        btnsignup.FlatStyle = FlatStyle.Flat
+        btnsignup.ForeColor = SystemColors.ButtonHighlight
+        btnsignup.Location = New Point(454, 343)
+        btnsignup.Margin = New Padding(2)
+        btnsignup.Name = "btnsignup"
+        btnsignup.Size = New Size(220, 29)
+        btnsignup.TabIndex = 37
+        btnsignup.Text = "Sign Up"
+        btnsignup.UseVisualStyleBackColor = False
         ' 
         ' logInLabel
         ' 
@@ -296,18 +296,18 @@ Partial Class SignUpForm
         ClientSize = New Size(800, 472)
         Controls.Add(logInLabel)
         Controls.Add(Label13)
-        Controls.Add(btnpassword)
-        Controls.Add(TextBox5)
-        Controls.Add(TextBox4)
+        Controls.Add(btnsignup)
+        Controls.Add(txtconfirmpassword)
+        Controls.Add(txtpassword)
         Controls.Add(Label11)
         Controls.Add(Label7)
-        Controls.Add(TextBox3)
+        Controls.Add(txtemail)
         Controls.Add(Label6)
-        Controls.Add(TextBox2)
+        Controls.Add(txtstudentID)
         Controls.Add(Label2)
-        Controls.Add(TextBox1)
+        Controls.Add(txtlastname)
         Controls.Add(Label3)
-        Controls.Add(txtusername)
+        Controls.Add(txtfirstname)
         Controls.Add(Username_Label)
         Controls.Add(Label1)
         Controls.Add(Label5)
@@ -333,19 +333,19 @@ Partial Class SignUpForm
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents txtusername As TextBox
+    Friend WithEvents txtfirstname As TextBox
     Friend WithEvents Username_Label As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtlastname As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtstudentID As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txtemail As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents btnpassword As Button
+    Friend WithEvents txtpassword As TextBox
+    Friend WithEvents txtconfirmpassword As TextBox
+    Friend WithEvents btnsignup As Button
     Friend WithEvents logInLabel As Label
     Friend WithEvents Label13 As Label
 End Class

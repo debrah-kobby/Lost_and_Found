@@ -28,7 +28,7 @@ Partial Class FoundItems
         locationLabel = New Label()
         categoryPicker = New ComboBox()
         categoryLabel = New Label()
-        TextBox1 = New TextBox()
+        searchFoundName = New TextBox()
         Label5 = New Label()
         Panel9 = New Panel()
         dashboardBtn = New Button()
@@ -51,6 +51,16 @@ Partial Class FoundItems
         bckToLogin = New Button()
         Label4 = New Label()
         BackgroundWorker1 = New ComponentModel.BackgroundWorker()
+        foundItemsGrid = New DataGridView()
+        ItemID = New DataGridViewTextBoxColumn()
+        ItemName = New DataGridViewTextBoxColumn()
+        Category = New DataGridViewTextBoxColumn()
+        LocationFound = New DataGridViewTextBoxColumn()
+        Description = New DataGridViewTextBoxColumn()
+        DateFound = New DataGridViewTextBoxColumn()
+        Status = New DataGridViewTextBoxColumn()
+        Contact = New DataGridViewTextBoxColumn()
+        clearFilterBtn = New Button()
         Panel3.SuspendLayout()
         Panel9.SuspendLayout()
         CType(PictureBox9, ComponentModel.ISupportInitialize).BeginInit()
@@ -62,6 +72,7 @@ Partial Class FoundItems
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(foundItemsGrid, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel3
@@ -70,11 +81,11 @@ Partial Class FoundItems
         Panel3.Controls.Add(locationLabel)
         Panel3.Controls.Add(categoryPicker)
         Panel3.Controls.Add(categoryLabel)
-        Panel3.Controls.Add(TextBox1)
+        Panel3.Controls.Add(searchFoundName)
         Panel3.Controls.Add(Label5)
         Panel3.Location = New Point(209, 85)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(559, 395)
+        Panel3.Size = New Size(559, 178)
         Panel3.TabIndex = 4
         ' 
         ' locationPicker
@@ -115,13 +126,13 @@ Partial Class FoundItems
         categoryLabel.TabIndex = 10
         categoryLabel.Text = "Category  :"
         ' 
-        ' TextBox1
+        ' searchFoundName
         ' 
-        TextBox1.Location = New Point(23, 60)
-        TextBox1.Name = "TextBox1"
-        TextBox1.PlaceholderText = "Search for Found Items"
-        TextBox1.Size = New Size(387, 23)
-        TextBox1.TabIndex = 9
+        searchFoundName.Location = New Point(23, 60)
+        searchFoundName.Name = "searchFoundName"
+        searchFoundName.PlaceholderText = "Search for Found Items"
+        searchFoundName.Size = New Size(387, 23)
+        searchFoundName.TabIndex = 9
         ' 
         ' Label5
         ' 
@@ -379,12 +390,87 @@ Partial Class FoundItems
         Label4.TabIndex = 19
         Label4.Text = "FOUND ITEMS"
         ' 
+        ' foundItemsGrid
+        ' 
+        foundItemsGrid.AllowUserToAddRows = False
+        foundItemsGrid.AllowUserToDeleteRows = False
+        foundItemsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        foundItemsGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        foundItemsGrid.Columns.AddRange(New DataGridViewColumn() {ItemID, ItemName, Category, LocationFound, Description, DateFound, Status, Contact})
+        foundItemsGrid.Location = New Point(209, 303)
+        foundItemsGrid.MultiSelect = False
+        foundItemsGrid.Name = "foundItemsGrid"
+        foundItemsGrid.ReadOnly = True
+        foundItemsGrid.RowHeadersVisible = False
+        foundItemsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        foundItemsGrid.Size = New Size(578, 150)
+        foundItemsGrid.TabIndex = 20
+        ' 
+        ' ItemID
+        ' 
+        ItemID.HeaderText = "Item ID"
+        ItemID.Name = "ItemID"
+        ItemID.ReadOnly = True
+        ' 
+        ' ItemName
+        ' 
+        ItemName.HeaderText = "Item Name"
+        ItemName.Name = "ItemName"
+        ItemName.ReadOnly = True
+        ' 
+        ' Category
+        ' 
+        Category.HeaderText = "Category"
+        Category.Name = "Category"
+        Category.ReadOnly = True
+        ' 
+        ' LocationFound
+        ' 
+        LocationFound.HeaderText = "LocationFound"
+        LocationFound.Name = "LocationFound"
+        LocationFound.ReadOnly = True
+        ' 
+        ' Description
+        ' 
+        Description.HeaderText = "Description"
+        Description.Name = "Description"
+        Description.ReadOnly = True
+        ' 
+        ' DateFound
+        ' 
+        DateFound.HeaderText = "Date Found"
+        DateFound.Name = "DateFound"
+        DateFound.ReadOnly = True
+        ' 
+        ' Status
+        ' 
+        Status.HeaderText = "Status"
+        Status.Name = "Status"
+        Status.ReadOnly = True
+        ' 
+        ' Contact
+        ' 
+        Contact.HeaderText = "Contact"
+        Contact.Name = "Contact"
+        Contact.ReadOnly = True
+        ' 
+        ' clearFilterBtn
+        ' 
+        clearFilterBtn.Location = New Point(677, 464)
+        clearFilterBtn.Name = "clearFilterBtn"
+        clearFilterBtn.Size = New Size(110, 23)
+        clearFilterBtn.TabIndex = 21
+        clearFilterBtn.Text = "Clear Filters"
+        clearFilterBtn.UseVisualStyleBackColor = True
+        ' 
         ' FoundItems
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(800, 499)
+        Controls.Add(clearFilterBtn)
+        Controls.Add(foundItemsGrid)
         Controls.Add(Label4)
         Controls.Add(Panel9)
         Controls.Add(Panel3)
@@ -402,6 +488,7 @@ Partial Class FoundItems
         CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        CType(foundItemsGrid, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -410,7 +497,7 @@ Partial Class FoundItems
     Friend WithEvents locationLabel As Label
     Friend WithEvents categoryPicker As ComboBox
     Friend WithEvents categoryLabel As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents searchFoundName As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Panel9 As Panel
     Friend WithEvents dashboardBtn As Button
@@ -433,4 +520,14 @@ Partial Class FoundItems
     Friend WithEvents bckToLogin As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents foundItemsGrid As DataGridView
+    Friend WithEvents ItemID As DataGridViewTextBoxColumn
+    Friend WithEvents ItemName As DataGridViewTextBoxColumn
+    Friend WithEvents Category As DataGridViewTextBoxColumn
+    Friend WithEvents LocationFound As DataGridViewTextBoxColumn
+    Friend WithEvents Description As DataGridViewTextBoxColumn
+    Friend WithEvents DateFound As DataGridViewTextBoxColumn
+    Friend WithEvents Status As DataGridViewTextBoxColumn
+    Friend WithEvents Contact As DataGridViewTextBoxColumn
+    Friend WithEvents clearFilterBtn As Button
 End Class

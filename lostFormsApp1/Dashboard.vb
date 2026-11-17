@@ -53,4 +53,38 @@
         Me.Hide()
         MyProfile.Show()
     End Sub
+
+    Private Sub LoadDashboardStatistics()
+
+        Try
+
+            Dim stats As DataTable = GetDashboardStatistics()
+
+            If stats.Rows.Count > 0 Then
+
+                lostItemCount.Text = stats.Rows(0)("LostItems").ToString()
+
+                foundItemCount.Text = stats.Rows(0)("FoundItems").ToString()
+
+                pendingClaimCount.Text = stats.Rows(0)("PendingClaims").ToString()
+
+                userCount.Text = stats.Rows(0)("TotalUsers").ToString()
+
+            End If
+
+        Catch ex As Exception
+
+            MessageBox.Show("Unable to load dashboard statistics: " & ex.Message,
+                        "Dashboard Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error)
+
+        End Try
+
+    End Sub
+    Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        LoadDashboardStatistics()
+
+    End Sub
 End Class

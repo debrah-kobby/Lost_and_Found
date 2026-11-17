@@ -45,6 +45,19 @@ Partial Class Dashboard
         PictureBox3 = New PictureBox()
         PictureBox1 = New PictureBox()
         Label2 = New Label()
+        Panel3 = New Panel()
+        Panel4 = New Panel()
+        Panel5 = New Panel()
+        Panel6 = New Panel()
+        lostItemLabel = New Label()
+        foundItemLabel = New Label()
+        pendingClaimLabel = New Label()
+        userCountLabel = New Label()
+        lostItemCount = New Label()
+        foundItemCount = New Label()
+        pendingClaimCount = New Label()
+        userCount = New Label()
+        Panel1.SuspendLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
         CType(PictureBox9, ComponentModel.ISupportInitialize).BeginInit()
@@ -55,6 +68,10 @@ Partial Class Dashboard
         CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        Panel3.SuspendLayout()
+        Panel4.SuspendLayout()
+        Panel5.SuspendLayout()
+        Panel6.SuspendLayout()
         SuspendLayout()
         ' 
         ' bckToLogin
@@ -85,6 +102,10 @@ Partial Class Dashboard
         ' Panel1
         ' 
         Panel1.BackColor = SystemColors.AppWorkspace
+        Panel1.Controls.Add(Panel6)
+        Panel1.Controls.Add(Panel5)
+        Panel1.Controls.Add(Panel4)
+        Panel1.Controls.Add(Panel3)
         Panel1.Location = New Point(209, 86)
         Panel1.Margin = New Padding(2)
         Panel1.Name = "Panel1"
@@ -324,6 +345,122 @@ Partial Class Dashboard
         Label2.TabIndex = 15
         Label2.Text = "Lost and Found System"
         ' 
+        ' Panel3
+        ' 
+        Panel3.Controls.Add(lostItemCount)
+        Panel3.Controls.Add(lostItemLabel)
+        Panel3.Location = New Point(53, 19)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(200, 71)
+        Panel3.TabIndex = 0
+        ' 
+        ' Panel4
+        ' 
+        Panel4.Controls.Add(foundItemCount)
+        Panel4.Controls.Add(foundItemLabel)
+        Panel4.Location = New Point(306, 19)
+        Panel4.Name = "Panel4"
+        Panel4.Size = New Size(200, 71)
+        Panel4.TabIndex = 1
+        ' 
+        ' Panel5
+        ' 
+        Panel5.Controls.Add(pendingClaimCount)
+        Panel5.Controls.Add(pendingClaimLabel)
+        Panel5.Location = New Point(53, 114)
+        Panel5.Name = "Panel5"
+        Panel5.Size = New Size(200, 71)
+        Panel5.TabIndex = 1
+        ' 
+        ' Panel6
+        ' 
+        Panel6.Controls.Add(userCount)
+        Panel6.Controls.Add(userCountLabel)
+        Panel6.Location = New Point(306, 113)
+        Panel6.Name = "Panel6"
+        Panel6.Size = New Size(200, 72)
+        Panel6.TabIndex = 1
+        ' 
+        ' lostItemLabel
+        ' 
+        lostItemLabel.AutoSize = True
+        lostItemLabel.Font = New Font("Segoe Print", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lostItemLabel.Location = New Point(11, 41)
+        lostItemLabel.Name = "lostItemLabel"
+        lostItemLabel.Size = New Size(89, 26)
+        lostItemLabel.TabIndex = 0
+        lostItemLabel.Text = "Lost Items"
+        ' 
+        ' foundItemLabel
+        ' 
+        foundItemLabel.AutoSize = True
+        foundItemLabel.Font = New Font("Segoe Print", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        foundItemLabel.Location = New Point(12, 41)
+        foundItemLabel.Name = "foundItemLabel"
+        foundItemLabel.Size = New Size(105, 26)
+        foundItemLabel.TabIndex = 1
+        foundItemLabel.Text = "Found Items"
+        ' 
+        ' pendingClaimLabel
+        ' 
+        pendingClaimLabel.AutoSize = True
+        pendingClaimLabel.Font = New Font("Segoe Print", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        pendingClaimLabel.Location = New Point(11, 37)
+        pendingClaimLabel.Name = "pendingClaimLabel"
+        pendingClaimLabel.Size = New Size(128, 26)
+        pendingClaimLabel.TabIndex = 2
+        pendingClaimLabel.Text = "Pending Claims"
+        ' 
+        ' userCountLabel
+        ' 
+        userCountLabel.AutoSize = True
+        userCountLabel.Font = New Font("Segoe Print", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        userCountLabel.Location = New Point(12, 39)
+        userCountLabel.Name = "userCountLabel"
+        userCountLabel.Size = New Size(96, 26)
+        userCountLabel.TabIndex = 3
+        userCountLabel.Text = "User Count"
+        ' 
+        ' lostItemCount
+        ' 
+        lostItemCount.AutoSize = True
+        lostItemCount.Font = New Font("Segoe Print", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lostItemCount.Location = New Point(11, 7)
+        lostItemCount.Name = "lostItemCount"
+        lostItemCount.Size = New Size(23, 26)
+        lostItemCount.TabIndex = 1
+        lostItemCount.Text = "3"
+        ' 
+        ' foundItemCount
+        ' 
+        foundItemCount.AutoSize = True
+        foundItemCount.Font = New Font("Segoe Print", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        foundItemCount.Location = New Point(12, 7)
+        foundItemCount.Name = "foundItemCount"
+        foundItemCount.Size = New Size(23, 26)
+        foundItemCount.TabIndex = 2
+        foundItemCount.Text = "3"
+        ' 
+        ' pendingClaimCount
+        ' 
+        pendingClaimCount.AutoSize = True
+        pendingClaimCount.Font = New Font("Segoe Print", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        pendingClaimCount.Location = New Point(11, 8)
+        pendingClaimCount.Name = "pendingClaimCount"
+        pendingClaimCount.Size = New Size(23, 26)
+        pendingClaimCount.TabIndex = 3
+        pendingClaimCount.Text = "3"
+        ' 
+        ' userCount
+        ' 
+        userCount.AutoSize = True
+        userCount.Font = New Font("Segoe Print", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        userCount.Location = New Point(12, 9)
+        userCount.Name = "userCount"
+        userCount.Size = New Size(23, 26)
+        userCount.TabIndex = 4
+        userCount.Text = "3"
+        ' 
         ' Dashboard
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -337,6 +474,7 @@ Partial Class Dashboard
         Margin = New Padding(2)
         Name = "Dashboard"
         Text = "Form3"
+        Panel1.ResumeLayout(False)
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
         CType(PictureBox9, ComponentModel.ISupportInitialize).EndInit()
@@ -347,6 +485,14 @@ Partial Class Dashboard
         CType(PictureBox4, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        Panel3.ResumeLayout(False)
+        Panel3.PerformLayout()
+        Panel4.ResumeLayout(False)
+        Panel4.PerformLayout()
+        Panel5.ResumeLayout(False)
+        Panel5.PerformLayout()
+        Panel6.ResumeLayout(False)
+        Panel6.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -373,4 +519,16 @@ Partial Class Dashboard
     Friend WithEvents PictureBox9 As PictureBox
     Friend WithEvents myProfileBtn As Button
     Friend WithEvents dashBoardBtn As Button
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents lostItemLabel As Label
+    Friend WithEvents userCountLabel As Label
+    Friend WithEvents pendingClaimLabel As Label
+    Friend WithEvents foundItemLabel As Label
+    Friend WithEvents userCount As Label
+    Friend WithEvents pendingClaimCount As Label
+    Friend WithEvents foundItemCount As Label
+    Friend WithEvents lostItemCount As Label
 End Class

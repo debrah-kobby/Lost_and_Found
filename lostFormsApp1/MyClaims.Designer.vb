@@ -44,26 +44,17 @@ Partial Class MyClaims
         bckToLogin = New Button()
         Label5 = New Label()
         Label4 = New Label()
-        Panel1 = New Panel()
-        Label10 = New Label()
-        Label9 = New Label()
-        Label8 = New Label()
-        Label7 = New Label()
-        Label6 = New Label()
-        Label3 = New Label()
-        Label2 = New Label()
-        Label1 = New Label()
         Panel2 = New Panel()
         Label15 = New Label()
-        Button1 = New Button()
+        searchBtn = New Button()
         Label14 = New Label()
         Label12 = New Label()
         Label13 = New Label()
-        DateTimePicker2 = New DateTimePicker()
-        DateTimePicker1 = New DateTimePicker()
-        ComboBox1 = New ComboBox()
+        toDatePicker = New DateTimePicker()
+        fromDatePicker = New DateTimePicker()
+        statusComboBox = New ComboBox()
         Label11 = New Label()
-        dgvReports = New DataGridView()
+        claimsGrid = New DataGridView()
         ClaimID = New DataGridViewTextBoxColumn()
         ItemName = New DataGridViewTextBoxColumn()
         Category = New DataGridViewTextBoxColumn()
@@ -73,17 +64,26 @@ Partial Class MyClaims
         Action = New DataGridViewTextBoxColumn()
         Panel3 = New Panel()
         Button3 = New Button()
-        Label26 = New Label()
-        Label25 = New Label()
-        Label24 = New Label()
-        Label23 = New Label()
-        Label22 = New Label()
+        searchedStatus = New Label()
+        searchedDate = New Label()
+        searchedCategory = New Label()
+        searchedItemName = New Label()
+        searchedClaimID = New Label()
         Label21 = New Label()
         Label20 = New Label()
         Label19 = New Label()
         Label18 = New Label()
         Label17 = New Label()
         Label16 = New Label()
+        Panel1 = New Panel()
+        rejectedCount = New Label()
+        approvedCount = New Label()
+        pendingCount = New Label()
+        totalReportsNumber = New Label()
+        approvedCountLbl = New Label()
+        rejectedCountLbl = New Label()
+        pendingCountLbl = New Label()
+        totalReportsLbl = New Label()
         Panel8.SuspendLayout()
         CType(PictureBox9, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox8, ComponentModel.ISupportInitialize).BeginInit()
@@ -94,10 +94,10 @@ Partial Class MyClaims
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
-        Panel1.SuspendLayout()
         Panel2.SuspendLayout()
-        CType(dgvReports, ComponentModel.ISupportInitialize).BeginInit()
+        CType(claimsGrid, ComponentModel.ISupportInitialize).BeginInit()
         Panel3.SuspendLayout()
+        Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' Panel8
@@ -352,122 +352,21 @@ Partial Class MyClaims
         Label4.Location = New Point(395, 16)
         Label4.Margin = New Padding(2, 0, 2, 0)
         Label4.Name = "Label4"
-        Label4.Size = New Size(121, 25)
+        Label4.Size = New Size(114, 25)
         Label4.TabIndex = 19
-        Label4.Text = "My Reports"
-        ' 
-        ' Panel1
-        ' 
-        Panel1.BackColor = SystemColors.AppWorkspace
-        Panel1.Controls.Add(Label10)
-        Panel1.Controls.Add(Label9)
-        Panel1.Controls.Add(Label8)
-        Panel1.Controls.Add(Label7)
-        Panel1.Controls.Add(Label6)
-        Panel1.Controls.Add(Label3)
-        Panel1.Controls.Add(Label2)
-        Panel1.Controls.Add(Label1)
-        Panel1.Location = New Point(277, 83)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(405, 76)
-        Panel1.TabIndex = 21
-        ' 
-        ' Label10
-        ' 
-        Label10.AutoSize = True
-        Label10.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label10.Location = New Point(327, 33)
-        Label10.Name = "Label10"
-        Label10.Size = New Size(53, 32)
-        Label10.TabIndex = 7
-        Label10.Text = "120"
-        ' 
-        ' Label9
-        ' 
-        Label9.AutoSize = True
-        Label9.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label9.Location = New Point(227, 33)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(53, 32)
-        Label9.TabIndex = 6
-        Label9.Text = "120"
-        ' 
-        ' Label8
-        ' 
-        Label8.AutoSize = True
-        Label8.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label8.Location = New Point(133, 33)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(53, 32)
-        Label8.TabIndex = 5
-        Label8.Text = "120"
-        ' 
-        ' Label7
-        ' 
-        Label7.AutoSize = True
-        Label7.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label7.Location = New Point(23, 33)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(53, 32)
-        Label7.TabIndex = 4
-        Label7.Text = "120"
-        ' 
-        ' Label6
-        ' 
-        Label6.AutoSize = True
-        Label6.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label6.ForeColor = Color.White
-        Label6.Location = New Point(225, 9)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(66, 17)
-        Label6.TabIndex = 3
-        Label6.Text = "Approved"
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label3.ForeColor = Color.White
-        Label3.Location = New Point(327, 9)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(58, 17)
-        Label3.TabIndex = 2
-        Label3.Text = "Rejected"
-        ' 
-        ' Label2
-        ' 
-        Label2.AutoSize = True
-        Label2.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label2.ForeColor = Color.White
-        Label2.Location = New Point(136, 9)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(55, 17)
-        Label2.TabIndex = 1
-        Label2.Text = "Pending"
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.FlatStyle = FlatStyle.Flat
-        Label1.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.ForeColor = Color.White
-        Label1.Location = New Point(13, 8)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(78, 17)
-        Label1.TabIndex = 0
-        Label1.Text = "Total Claims"
+        Label4.Text = "My Claims"
         ' 
         ' Panel2
         ' 
         Panel2.BackColor = SystemColors.AppWorkspace
         Panel2.Controls.Add(Label15)
-        Panel2.Controls.Add(Button1)
+        Panel2.Controls.Add(searchBtn)
         Panel2.Controls.Add(Label14)
         Panel2.Controls.Add(Label12)
         Panel2.Controls.Add(Label13)
-        Panel2.Controls.Add(DateTimePicker2)
-        Panel2.Controls.Add(DateTimePicker1)
-        Panel2.Controls.Add(ComboBox1)
+        Panel2.Controls.Add(toDatePicker)
+        Panel2.Controls.Add(fromDatePicker)
+        Panel2.Controls.Add(statusComboBox)
         Panel2.Controls.Add(Label11)
         Panel2.Location = New Point(213, 183)
         Panel2.Name = "Panel2"
@@ -486,16 +385,16 @@ Partial Class MyClaims
         Label15.TabIndex = 29
         Label15.Text = "To :"
         ' 
-        ' Button1
+        ' searchBtn
         ' 
-        Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Button1.Location = New Point(466, 67)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(96, 28)
-        Button1.TabIndex = 28
-        Button1.Text = "Search"
-        Button1.UseVisualStyleBackColor = True
+        searchBtn.FlatStyle = FlatStyle.Flat
+        searchBtn.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        searchBtn.Location = New Point(466, 67)
+        searchBtn.Name = "searchBtn"
+        searchBtn.Size = New Size(96, 28)
+        searchBtn.TabIndex = 28
+        searchBtn.Text = "Search"
+        searchBtn.UseVisualStyleBackColor = True
         ' 
         ' Label14
         ' 
@@ -533,28 +432,28 @@ Partial Class MyClaims
         Label13.TabIndex = 26
         Label13.Text = "Date :"
         ' 
-        ' DateTimePicker2
+        ' toDatePicker
         ' 
-        DateTimePicker2.Location = New Point(289, 69)
-        DateTimePicker2.Name = "DateTimePicker2"
-        DateTimePicker2.Size = New Size(129, 23)
-        DateTimePicker2.TabIndex = 24
+        toDatePicker.Location = New Point(289, 69)
+        toDatePicker.Name = "toDatePicker"
+        toDatePicker.Size = New Size(129, 23)
+        toDatePicker.TabIndex = 24
         ' 
-        ' DateTimePicker1
+        ' fromDatePicker
         ' 
-        DateTimePicker1.Location = New Point(130, 69)
-        DateTimePicker1.Name = "DateTimePicker1"
-        DateTimePicker1.Size = New Size(129, 23)
-        DateTimePicker1.TabIndex = 23
+        fromDatePicker.Location = New Point(130, 69)
+        fromDatePicker.Name = "fromDatePicker"
+        fromDatePicker.Size = New Size(129, 23)
+        fromDatePicker.TabIndex = 23
         ' 
-        ' ComboBox1
+        ' statusComboBox
         ' 
-        ComboBox1.FlatStyle = FlatStyle.Flat
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(465, 15)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(97, 23)
-        ComboBox1.TabIndex = 22
+        statusComboBox.FlatStyle = FlatStyle.Flat
+        statusComboBox.FormattingEnabled = True
+        statusComboBox.Location = New Point(465, 15)
+        statusComboBox.Name = "statusComboBox"
+        statusComboBox.Size = New Size(97, 23)
+        statusComboBox.TabIndex = 22
         ' 
         ' Label11
         ' 
@@ -568,20 +467,20 @@ Partial Class MyClaims
         Label11.TabIndex = 21
         Label11.Text = "Search Claims"
         ' 
-        ' dgvReports
+        ' claimsGrid
         ' 
-        dgvReports.AllowUserToAddRows = False
-        dgvReports.AllowUserToDeleteRows = False
-        dgvReports.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        dgvReports.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgvReports.Columns.AddRange(New DataGridViewColumn() {ClaimID, ItemName, Category, Location, DateReported, Status, Action})
-        dgvReports.Location = New Point(213, 312)
-        dgvReports.Name = "dgvReports"
-        dgvReports.ReadOnly = True
-        dgvReports.RowHeadersVisible = False
-        dgvReports.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvReports.Size = New Size(610, 150)
-        dgvReports.TabIndex = 23
+        claimsGrid.AllowUserToAddRows = False
+        claimsGrid.AllowUserToDeleteRows = False
+        claimsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        claimsGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        claimsGrid.Columns.AddRange(New DataGridViewColumn() {ClaimID, ItemName, Category, Location, DateReported, Status, Action})
+        claimsGrid.Location = New Point(213, 312)
+        claimsGrid.Name = "claimsGrid"
+        claimsGrid.ReadOnly = True
+        claimsGrid.RowHeadersVisible = False
+        claimsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        claimsGrid.Size = New Size(610, 150)
+        claimsGrid.TabIndex = 23
         ' 
         ' ClaimID
         ' 
@@ -628,11 +527,11 @@ Partial Class MyClaims
         ' Panel3
         ' 
         Panel3.Controls.Add(Button3)
-        Panel3.Controls.Add(Label26)
-        Panel3.Controls.Add(Label25)
-        Panel3.Controls.Add(Label24)
-        Panel3.Controls.Add(Label23)
-        Panel3.Controls.Add(Label22)
+        Panel3.Controls.Add(searchedStatus)
+        Panel3.Controls.Add(searchedDate)
+        Panel3.Controls.Add(searchedCategory)
+        Panel3.Controls.Add(searchedItemName)
+        Panel3.Controls.Add(searchedClaimID)
         Panel3.Controls.Add(Label21)
         Panel3.Controls.Add(Label20)
         Panel3.Controls.Add(Label19)
@@ -655,65 +554,65 @@ Partial Class MyClaims
         Button3.Text = "Close"
         Button3.UseVisualStyleBackColor = False
         ' 
-        ' Label26
+        ' searchedStatus
         ' 
-        Label26.AutoSize = True
-        Label26.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label26.ForeColor = Color.Black
-        Label26.Location = New Point(176, 181)
-        Label26.Margin = New Padding(2, 0, 2, 0)
-        Label26.Name = "Label26"
-        Label26.Size = New Size(159, 19)
-        Label26.TabIndex = 40
-        Label26.Text = "Searched Claim Details"
+        searchedStatus.AutoSize = True
+        searchedStatus.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        searchedStatus.ForeColor = Color.Black
+        searchedStatus.Location = New Point(176, 181)
+        searchedStatus.Margin = New Padding(2, 0, 2, 0)
+        searchedStatus.Name = "searchedStatus"
+        searchedStatus.Size = New Size(159, 19)
+        searchedStatus.TabIndex = 40
+        searchedStatus.Text = "Searched Claim Details"
         ' 
-        ' Label25
+        ' searchedDate
         ' 
-        Label25.AutoSize = True
-        Label25.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label25.ForeColor = Color.Black
-        Label25.Location = New Point(176, 148)
-        Label25.Margin = New Padding(2, 0, 2, 0)
-        Label25.Name = "Label25"
-        Label25.Size = New Size(159, 19)
-        Label25.TabIndex = 39
-        Label25.Text = "Searched Claim Details"
+        searchedDate.AutoSize = True
+        searchedDate.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        searchedDate.ForeColor = Color.Black
+        searchedDate.Location = New Point(176, 148)
+        searchedDate.Margin = New Padding(2, 0, 2, 0)
+        searchedDate.Name = "searchedDate"
+        searchedDate.Size = New Size(159, 19)
+        searchedDate.TabIndex = 39
+        searchedDate.Text = "Searched Claim Details"
         ' 
-        ' Label24
+        ' searchedCategory
         ' 
-        Label24.AutoSize = True
-        Label24.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label24.ForeColor = Color.Black
-        Label24.Location = New Point(176, 116)
-        Label24.Margin = New Padding(2, 0, 2, 0)
-        Label24.Name = "Label24"
-        Label24.Size = New Size(159, 19)
-        Label24.TabIndex = 38
-        Label24.Text = "Searched Claim Details"
+        searchedCategory.AutoSize = True
+        searchedCategory.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        searchedCategory.ForeColor = Color.Black
+        searchedCategory.Location = New Point(176, 116)
+        searchedCategory.Margin = New Padding(2, 0, 2, 0)
+        searchedCategory.Name = "searchedCategory"
+        searchedCategory.Size = New Size(159, 19)
+        searchedCategory.TabIndex = 38
+        searchedCategory.Text = "Searched Claim Details"
         ' 
-        ' Label23
+        ' searchedItemName
         ' 
-        Label23.AutoSize = True
-        Label23.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label23.ForeColor = Color.Black
-        Label23.Location = New Point(176, 79)
-        Label23.Margin = New Padding(2, 0, 2, 0)
-        Label23.Name = "Label23"
-        Label23.Size = New Size(159, 19)
-        Label23.TabIndex = 37
-        Label23.Text = "Searched Claim Details"
+        searchedItemName.AutoSize = True
+        searchedItemName.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        searchedItemName.ForeColor = Color.Black
+        searchedItemName.Location = New Point(176, 79)
+        searchedItemName.Margin = New Padding(2, 0, 2, 0)
+        searchedItemName.Name = "searchedItemName"
+        searchedItemName.Size = New Size(159, 19)
+        searchedItemName.TabIndex = 37
+        searchedItemName.Text = "Searched Claim Details"
         ' 
-        ' Label22
+        ' searchedClaimID
         ' 
-        Label22.AutoSize = True
-        Label22.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label22.ForeColor = Color.Black
-        Label22.Location = New Point(176, 40)
-        Label22.Margin = New Padding(2, 0, 2, 0)
-        Label22.Name = "Label22"
-        Label22.Size = New Size(159, 19)
-        Label22.TabIndex = 36
-        Label22.Text = "Searched Claim Details"
+        searchedClaimID.AutoSize = True
+        searchedClaimID.Font = New Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        searchedClaimID.ForeColor = Color.Black
+        searchedClaimID.Location = New Point(176, 40)
+        searchedClaimID.Margin = New Padding(2, 0, 2, 0)
+        searchedClaimID.Name = "searchedClaimID"
+        searchedClaimID.Size = New Size(159, 19)
+        searchedClaimID.TabIndex = 36
+        searchedClaimID.Text = "Searched Claim Details"
         ' 
         ' Label21
         ' 
@@ -787,16 +686,117 @@ Partial Class MyClaims
         Label16.TabIndex = 30
         Label16.Text = "Searched Claim Details"
         ' 
+        ' Panel1
+        ' 
+        Panel1.BackColor = SystemColors.AppWorkspace
+        Panel1.Controls.Add(rejectedCount)
+        Panel1.Controls.Add(approvedCount)
+        Panel1.Controls.Add(pendingCount)
+        Panel1.Controls.Add(totalReportsNumber)
+        Panel1.Controls.Add(approvedCountLbl)
+        Panel1.Controls.Add(rejectedCountLbl)
+        Panel1.Controls.Add(pendingCountLbl)
+        Panel1.Controls.Add(totalReportsLbl)
+        Panel1.Location = New Point(280, 81)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(405, 76)
+        Panel1.TabIndex = 25
+        ' 
+        ' rejectedCount
+        ' 
+        rejectedCount.AutoSize = True
+        rejectedCount.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        rejectedCount.Location = New Point(327, 33)
+        rejectedCount.Name = "rejectedCount"
+        rejectedCount.Size = New Size(53, 32)
+        rejectedCount.TabIndex = 7
+        rejectedCount.Text = "120"
+        ' 
+        ' approvedCount
+        ' 
+        approvedCount.AutoSize = True
+        approvedCount.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        approvedCount.Location = New Point(227, 33)
+        approvedCount.Name = "approvedCount"
+        approvedCount.Size = New Size(53, 32)
+        approvedCount.TabIndex = 6
+        approvedCount.Text = "120"
+        ' 
+        ' pendingCount
+        ' 
+        pendingCount.AutoSize = True
+        pendingCount.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        pendingCount.Location = New Point(133, 33)
+        pendingCount.Name = "pendingCount"
+        pendingCount.Size = New Size(53, 32)
+        pendingCount.TabIndex = 5
+        pendingCount.Text = "120"
+        ' 
+        ' totalReportsNumber
+        ' 
+        totalReportsNumber.AutoSize = True
+        totalReportsNumber.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        totalReportsNumber.Location = New Point(23, 33)
+        totalReportsNumber.Name = "totalReportsNumber"
+        totalReportsNumber.Size = New Size(53, 32)
+        totalReportsNumber.TabIndex = 4
+        totalReportsNumber.Text = "120"
+        ' 
+        ' approvedCountLbl
+        ' 
+        approvedCountLbl.AutoSize = True
+        approvedCountLbl.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        approvedCountLbl.ForeColor = Color.White
+        approvedCountLbl.Location = New Point(225, 9)
+        approvedCountLbl.Name = "approvedCountLbl"
+        approvedCountLbl.Size = New Size(66, 17)
+        approvedCountLbl.TabIndex = 3
+        approvedCountLbl.Text = "Approved"
+        ' 
+        ' rejectedCountLbl
+        ' 
+        rejectedCountLbl.AutoSize = True
+        rejectedCountLbl.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        rejectedCountLbl.ForeColor = Color.White
+        rejectedCountLbl.Location = New Point(327, 9)
+        rejectedCountLbl.Name = "rejectedCountLbl"
+        rejectedCountLbl.Size = New Size(58, 17)
+        rejectedCountLbl.TabIndex = 2
+        rejectedCountLbl.Text = "Rejected"
+        ' 
+        ' pendingCountLbl
+        ' 
+        pendingCountLbl.AutoSize = True
+        pendingCountLbl.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        pendingCountLbl.ForeColor = Color.White
+        pendingCountLbl.Location = New Point(143, 9)
+        pendingCountLbl.Name = "pendingCountLbl"
+        pendingCountLbl.Size = New Size(55, 17)
+        pendingCountLbl.TabIndex = 1
+        pendingCountLbl.Text = "Pending"
+        ' 
+        ' totalReportsLbl
+        ' 
+        totalReportsLbl.AutoSize = True
+        totalReportsLbl.FlatStyle = FlatStyle.Flat
+        totalReportsLbl.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        totalReportsLbl.ForeColor = Color.White
+        totalReportsLbl.Location = New Point(13, 8)
+        totalReportsLbl.Name = "totalReportsLbl"
+        totalReportsLbl.Size = New Size(86, 17)
+        totalReportsLbl.TabIndex = 0
+        totalReportsLbl.Text = "Total Reports"
+        ' 
         ' MyClaims
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         AutoScroll = True
         ClientSize = New Size(845, 493)
-        Controls.Add(Panel3)
-        Controls.Add(dgvReports)
-        Controls.Add(Panel2)
         Controls.Add(Panel1)
+        Controls.Add(Panel3)
+        Controls.Add(claimsGrid)
+        Controls.Add(Panel2)
         Controls.Add(Label5)
         Controls.Add(Label4)
         Controls.Add(Panel8)
@@ -812,13 +812,13 @@ Partial Class MyClaims
         CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
-        Panel1.ResumeLayout(False)
-        Panel1.PerformLayout()
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
-        CType(dgvReports, ComponentModel.ISupportInitialize).EndInit()
+        CType(claimsGrid, ComponentModel.ISupportInitialize).EndInit()
         Panel3.ResumeLayout(False)
         Panel3.PerformLayout()
+        Panel1.ResumeLayout(False)
+        Panel1.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -844,26 +844,17 @@ Partial Class MyClaims
     Friend WithEvents bckToLogin As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label15 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents searchBtn As Button
     Friend WithEvents Label14 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
-    Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents toDatePicker As DateTimePicker
+    Friend WithEvents fromDatePicker As DateTimePicker
+    Friend WithEvents statusComboBox As ComboBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents dgvReports As DataGridView
+    Friend WithEvents claimsGrid As DataGridView
     Friend WithEvents ClaimID As DataGridViewTextBoxColumn
     Friend WithEvents ItemName As DataGridViewTextBoxColumn
     Friend WithEvents Category As DataGridViewTextBoxColumn
@@ -876,12 +867,21 @@ Partial Class MyClaims
     Friend WithEvents Label17 As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents Button3 As Button
-    Friend WithEvents Label26 As Label
-    Friend WithEvents Label25 As Label
-    Friend WithEvents Label24 As Label
-    Friend WithEvents Label23 As Label
-    Friend WithEvents Label22 As Label
+    Friend WithEvents searchedStatus As Label
+    Friend WithEvents searchedDate As Label
+    Friend WithEvents searchedCategory As Label
+    Friend WithEvents searchedItemName As Label
+    Friend WithEvents searchedClaimID As Label
     Friend WithEvents Label21 As Label
     Friend WithEvents Label20 As Label
     Friend WithEvents Label19 As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents rejectedCount As Label
+    Friend WithEvents approvedCount As Label
+    Friend WithEvents pendingCount As Label
+    Friend WithEvents totalReportsNumber As Label
+    Friend WithEvents approvedCountLbl As Label
+    Friend WithEvents rejectedCountLbl As Label
+    Friend WithEvents pendingCountLbl As Label
+    Friend WithEvents totalReportsLbl As Label
 End Class

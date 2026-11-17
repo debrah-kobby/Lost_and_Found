@@ -45,34 +45,37 @@ Partial Class MyReports
         Label4 = New Label()
         Label5 = New Label()
         Panel1 = New Panel()
-        Label10 = New Label()
-        Label9 = New Label()
-        Label8 = New Label()
-        Label7 = New Label()
-        Label6 = New Label()
-        Label3 = New Label()
-        Label2 = New Label()
-        Label1 = New Label()
+        foundCount = New Label()
+        claimedCount = New Label()
+        lostCount = New Label()
+        totalReportsNumber = New Label()
+        claimedCountLbl = New Label()
+        foundCountLbl = New Label()
+        lostCountLbl = New Label()
+        totalReportsLbl = New Label()
         Panel2 = New Panel()
-        Button1 = New Button()
+        generateBtn = New Button()
         Label14 = New Label()
         Label13 = New Label()
         Label12 = New Label()
-        DateTimePicker2 = New DateTimePicker()
-        DateTimePicker1 = New DateTimePicker()
-        ComboBox1 = New ComboBox()
+        toDatePicker = New DateTimePicker()
+        fromDatePicker = New DateTimePicker()
+        reportTypeComboBox = New ComboBox()
         Label11 = New Label()
-        dgvReports = New DataGridView()
-        ReportID = New DataGridViewTextBoxColumn()
+        lostReportsGrid = New DataGridView()
+        ItemID = New DataGridViewTextBoxColumn()
         ItemName = New DataGridViewTextBoxColumn()
-        ReportType = New DataGridViewTextBoxColumn()
         Category = New DataGridViewTextBoxColumn()
-        Location = New DataGridViewTextBoxColumn()
-        DateReported = New DataGridViewTextBoxColumn()
+        LocationLost = New DataGridViewTextBoxColumn()
+        DateLost = New DataGridViewTextBoxColumn()
         Status = New DataGridViewTextBoxColumn()
-        Button4 = New Button()
-        Button5 = New Button()
-        Button6 = New Button()
+        foundReportsGrid = New DataGridView()
+        FoundReportID = New DataGridViewTextBoxColumn()
+        FoundItemName = New DataGridViewTextBoxColumn()
+        FoundCategory = New DataGridViewTextBoxColumn()
+        FoundLocation = New DataGridViewTextBoxColumn()
+        FoundDate = New DataGridViewTextBoxColumn()
+        FoundStatus = New DataGridViewTextBoxColumn()
         Panel8.SuspendLayout()
         CType(PictureBox9, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox8, ComponentModel.ISupportInitialize).BeginInit()
@@ -85,7 +88,8 @@ Partial Class MyReports
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
-        CType(dgvReports, ComponentModel.ISupportInitialize).BeginInit()
+        CType(lostReportsGrid, ComponentModel.ISupportInitialize).BeginInit()
+        CType(foundReportsGrid, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel8
@@ -347,130 +351,130 @@ Partial Class MyReports
         ' Panel1
         ' 
         Panel1.BackColor = SystemColors.AppWorkspace
-        Panel1.Controls.Add(Label10)
-        Panel1.Controls.Add(Label9)
-        Panel1.Controls.Add(Label8)
-        Panel1.Controls.Add(Label7)
-        Panel1.Controls.Add(Label6)
-        Panel1.Controls.Add(Label3)
-        Panel1.Controls.Add(Label2)
-        Panel1.Controls.Add(Label1)
+        Panel1.Controls.Add(foundCount)
+        Panel1.Controls.Add(claimedCount)
+        Panel1.Controls.Add(lostCount)
+        Panel1.Controls.Add(totalReportsNumber)
+        Panel1.Controls.Add(claimedCountLbl)
+        Panel1.Controls.Add(foundCountLbl)
+        Panel1.Controls.Add(lostCountLbl)
+        Panel1.Controls.Add(totalReportsLbl)
         Panel1.Location = New Point(259, 80)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(405, 76)
         Panel1.TabIndex = 19
         ' 
-        ' Label10
+        ' foundCount
         ' 
-        Label10.AutoSize = True
-        Label10.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label10.Location = New Point(327, 33)
-        Label10.Name = "Label10"
-        Label10.Size = New Size(53, 32)
-        Label10.TabIndex = 7
-        Label10.Text = "120"
+        foundCount.AutoSize = True
+        foundCount.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        foundCount.Location = New Point(327, 33)
+        foundCount.Name = "foundCount"
+        foundCount.Size = New Size(53, 32)
+        foundCount.TabIndex = 7
+        foundCount.Text = "120"
         ' 
-        ' Label9
+        ' claimedCount
         ' 
-        Label9.AutoSize = True
-        Label9.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label9.Location = New Point(227, 33)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(53, 32)
-        Label9.TabIndex = 6
-        Label9.Text = "120"
+        claimedCount.AutoSize = True
+        claimedCount.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        claimedCount.Location = New Point(227, 33)
+        claimedCount.Name = "claimedCount"
+        claimedCount.Size = New Size(53, 32)
+        claimedCount.TabIndex = 6
+        claimedCount.Text = "120"
         ' 
-        ' Label8
+        ' lostCount
         ' 
-        Label8.AutoSize = True
-        Label8.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label8.Location = New Point(133, 33)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(53, 32)
-        Label8.TabIndex = 5
-        Label8.Text = "120"
+        lostCount.AutoSize = True
+        lostCount.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        lostCount.Location = New Point(133, 33)
+        lostCount.Name = "lostCount"
+        lostCount.Size = New Size(53, 32)
+        lostCount.TabIndex = 5
+        lostCount.Text = "120"
         ' 
-        ' Label7
+        ' totalReportsNumber
         ' 
-        Label7.AutoSize = True
-        Label7.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label7.Location = New Point(23, 33)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(53, 32)
-        Label7.TabIndex = 4
-        Label7.Text = "120"
+        totalReportsNumber.AutoSize = True
+        totalReportsNumber.Font = New Font("Segoe UI Emoji", 18F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        totalReportsNumber.Location = New Point(23, 33)
+        totalReportsNumber.Name = "totalReportsNumber"
+        totalReportsNumber.Size = New Size(53, 32)
+        totalReportsNumber.TabIndex = 4
+        totalReportsNumber.Text = "120"
         ' 
-        ' Label6
+        ' claimedCountLbl
         ' 
-        Label6.AutoSize = True
-        Label6.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label6.ForeColor = Color.White
-        Label6.Location = New Point(225, 9)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(55, 17)
-        Label6.TabIndex = 3
-        Label6.Text = "Claimed"
+        claimedCountLbl.AutoSize = True
+        claimedCountLbl.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        claimedCountLbl.ForeColor = Color.White
+        claimedCountLbl.Location = New Point(225, 9)
+        claimedCountLbl.Name = "claimedCountLbl"
+        claimedCountLbl.Size = New Size(55, 17)
+        claimedCountLbl.TabIndex = 3
+        claimedCountLbl.Text = "Claimed"
         ' 
-        ' Label3
+        ' foundCountLbl
         ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label3.ForeColor = Color.White
-        Label3.Location = New Point(327, 9)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(44, 17)
-        Label3.TabIndex = 2
-        Label3.Text = "Found"
+        foundCountLbl.AutoSize = True
+        foundCountLbl.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        foundCountLbl.ForeColor = Color.White
+        foundCountLbl.Location = New Point(327, 9)
+        foundCountLbl.Name = "foundCountLbl"
+        foundCountLbl.Size = New Size(44, 17)
+        foundCountLbl.TabIndex = 2
+        foundCountLbl.Text = "Found"
         ' 
-        ' Label2
+        ' lostCountLbl
         ' 
-        Label2.AutoSize = True
-        Label2.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label2.ForeColor = Color.White
-        Label2.Location = New Point(143, 9)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(32, 17)
-        Label2.TabIndex = 1
-        Label2.Text = "Lost"
+        lostCountLbl.AutoSize = True
+        lostCountLbl.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lostCountLbl.ForeColor = Color.White
+        lostCountLbl.Location = New Point(143, 9)
+        lostCountLbl.Name = "lostCountLbl"
+        lostCountLbl.Size = New Size(32, 17)
+        lostCountLbl.TabIndex = 1
+        lostCountLbl.Text = "Lost"
         ' 
-        ' Label1
+        ' totalReportsLbl
         ' 
-        Label1.AutoSize = True
-        Label1.FlatStyle = FlatStyle.Flat
-        Label1.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.ForeColor = Color.White
-        Label1.Location = New Point(13, 8)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(86, 17)
-        Label1.TabIndex = 0
-        Label1.Text = "Total Reports"
+        totalReportsLbl.AutoSize = True
+        totalReportsLbl.FlatStyle = FlatStyle.Flat
+        totalReportsLbl.Font = New Font("Nirmala Text", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        totalReportsLbl.ForeColor = Color.White
+        totalReportsLbl.Location = New Point(13, 8)
+        totalReportsLbl.Name = "totalReportsLbl"
+        totalReportsLbl.Size = New Size(86, 17)
+        totalReportsLbl.TabIndex = 0
+        totalReportsLbl.Text = "Total Reports"
         ' 
         ' Panel2
         ' 
         Panel2.BackColor = SystemColors.AppWorkspace
-        Panel2.Controls.Add(Button1)
+        Panel2.Controls.Add(generateBtn)
         Panel2.Controls.Add(Label14)
         Panel2.Controls.Add(Label13)
         Panel2.Controls.Add(Label12)
-        Panel2.Controls.Add(DateTimePicker2)
-        Panel2.Controls.Add(DateTimePicker1)
-        Panel2.Controls.Add(ComboBox1)
+        Panel2.Controls.Add(toDatePicker)
+        Panel2.Controls.Add(fromDatePicker)
+        Panel2.Controls.Add(reportTypeComboBox)
         Panel2.Controls.Add(Label11)
         Panel2.Location = New Point(204, 195)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(609, 113)
         Panel2.TabIndex = 20
         ' 
-        ' Button1
+        ' generateBtn
         ' 
-        Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Button1.Location = New Point(502, 57)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(96, 36)
-        Button1.TabIndex = 28
-        Button1.Text = "Generate"
-        Button1.UseVisualStyleBackColor = True
+        generateBtn.FlatStyle = FlatStyle.Flat
+        generateBtn.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        generateBtn.Location = New Point(502, 57)
+        generateBtn.Name = "generateBtn"
+        generateBtn.Size = New Size(94, 24)
+        generateBtn.TabIndex = 28
+        generateBtn.Text = "Generate"
+        generateBtn.UseVisualStyleBackColor = True
         ' 
         ' Label14
         ' 
@@ -508,28 +512,28 @@ Partial Class MyReports
         Label12.TabIndex = 25
         Label12.Text = "Report Type"
         ' 
-        ' DateTimePicker2
+        ' toDatePicker
         ' 
-        DateTimePicker2.Location = New Point(363, 58)
-        DateTimePicker2.Name = "DateTimePicker2"
-        DateTimePicker2.Size = New Size(129, 23)
-        DateTimePicker2.TabIndex = 24
+        toDatePicker.Location = New Point(363, 58)
+        toDatePicker.Name = "toDatePicker"
+        toDatePicker.Size = New Size(129, 23)
+        toDatePicker.TabIndex = 24
         ' 
-        ' DateTimePicker1
+        ' fromDatePicker
         ' 
-        DateTimePicker1.Location = New Point(206, 58)
-        DateTimePicker1.Name = "DateTimePicker1"
-        DateTimePicker1.Size = New Size(129, 23)
-        DateTimePicker1.TabIndex = 23
+        fromDatePicker.Location = New Point(206, 58)
+        fromDatePicker.Name = "fromDatePicker"
+        fromDatePicker.Size = New Size(129, 23)
+        fromDatePicker.TabIndex = 23
         ' 
-        ' ComboBox1
+        ' reportTypeComboBox
         ' 
-        ComboBox1.FlatStyle = FlatStyle.Flat
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(7, 58)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(159, 23)
-        ComboBox1.TabIndex = 22
+        reportTypeComboBox.FlatStyle = FlatStyle.Flat
+        reportTypeComboBox.FormattingEnabled = True
+        reportTypeComboBox.Location = New Point(7, 58)
+        reportTypeComboBox.Name = "reportTypeComboBox"
+        reportTypeComboBox.Size = New Size(159, 23)
+        reportTypeComboBox.TabIndex = 22
         ' 
         ' Label11
         ' 
@@ -543,38 +547,32 @@ Partial Class MyReports
         Label11.TabIndex = 21
         Label11.Text = "Report Filters"
         ' 
-        ' dgvReports
+        ' lostReportsGrid
         ' 
-        dgvReports.AllowUserToAddRows = False
-        dgvReports.AllowUserToDeleteRows = False
-        dgvReports.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        dgvReports.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgvReports.Columns.AddRange(New DataGridViewColumn() {ReportID, ItemName, ReportType, Category, Location, DateReported, Status})
-        dgvReports.Location = New Point(203, 314)
-        dgvReports.Name = "dgvReports"
-        dgvReports.ReadOnly = True
-        dgvReports.RowHeadersVisible = False
-        dgvReports.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvReports.Size = New Size(610, 150)
-        dgvReports.TabIndex = 21
+        lostReportsGrid.AllowUserToAddRows = False
+        lostReportsGrid.AllowUserToDeleteRows = False
+        lostReportsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        lostReportsGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        lostReportsGrid.Columns.AddRange(New DataGridViewColumn() {ItemID, ItemName, Category, LocationLost, DateLost, Status})
+        lostReportsGrid.Location = New Point(204, 339)
+        lostReportsGrid.MultiSelect = False
+        lostReportsGrid.Name = "lostReportsGrid"
+        lostReportsGrid.ReadOnly = True
+        lostReportsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        lostReportsGrid.Size = New Size(609, 150)
+        lostReportsGrid.TabIndex = 21
         ' 
-        ' ReportID
+        ' ItemID
         ' 
-        ReportID.HeaderText = "ReportID"
-        ReportID.Name = "ReportID"
-        ReportID.ReadOnly = True
+        ItemID.HeaderText = "Item ID"
+        ItemID.Name = "ItemID"
+        ItemID.ReadOnly = True
         ' 
         ' ItemName
         ' 
-        ItemName.HeaderText = "Item Name"
+        ItemName.HeaderText = "ItemName"
         ItemName.Name = "ItemName"
         ItemName.ReadOnly = True
-        ' 
-        ' ReportType
-        ' 
-        ReportType.HeaderText = "Report Type"
-        ReportType.Name = "ReportType"
-        ReportType.ReadOnly = True
         ' 
         ' Category
         ' 
@@ -582,17 +580,17 @@ Partial Class MyReports
         Category.Name = "Category"
         Category.ReadOnly = True
         ' 
-        ' Location
+        ' LocationLost
         ' 
-        Location.HeaderText = "Location"
-        Location.Name = "Location"
-        Location.ReadOnly = True
+        LocationLost.HeaderText = "Location Lost"
+        LocationLost.Name = "LocationLost"
+        LocationLost.ReadOnly = True
         ' 
-        ' DateReported
+        ' DateLost
         ' 
-        DateReported.HeaderText = "Date Reported"
-        DateReported.Name = "DateReported"
-        DateReported.ReadOnly = True
+        DateLost.HeaderText = "Date Lost"
+        DateLost.Name = "DateLost"
+        DateLost.ReadOnly = True
         ' 
         ' Status
         ' 
@@ -600,45 +598,65 @@ Partial Class MyReports
         Status.Name = "Status"
         Status.ReadOnly = True
         ' 
-        ' Button4
+        ' foundReportsGrid
         ' 
-        Button4.FlatStyle = FlatStyle.Flat
-        Button4.Location = New Point(706, 470)
-        Button4.Name = "Button4"
-        Button4.Size = New Size(107, 23)
-        Button4.TabIndex = 23
-        Button4.Text = "Refresh"
-        Button4.UseVisualStyleBackColor = True
+        foundReportsGrid.AllowUserToAddRows = False
+        foundReportsGrid.AllowUserToDeleteRows = False
+        foundReportsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        foundReportsGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        foundReportsGrid.Columns.AddRange(New DataGridViewColumn() {FoundReportID, FoundItemName, FoundCategory, FoundLocation, FoundDate, FoundStatus})
+        foundReportsGrid.Location = New Point(204, 502)
+        foundReportsGrid.MultiSelect = False
+        foundReportsGrid.Name = "foundReportsGrid"
+        foundReportsGrid.ReadOnly = True
+        foundReportsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        foundReportsGrid.Size = New Size(609, 150)
+        foundReportsGrid.TabIndex = 22
         ' 
-        ' Button5
+        ' FoundReportID
         ' 
-        Button5.FlatStyle = FlatStyle.Flat
-        Button5.Location = New Point(586, 470)
-        Button5.Name = "Button5"
-        Button5.Size = New Size(107, 23)
-        Button5.TabIndex = 24
-        Button5.Text = "Print"
-        Button5.UseVisualStyleBackColor = True
+        FoundReportID.HeaderText = "Item ID"
+        FoundReportID.Name = "FoundReportID"
+        FoundReportID.ReadOnly = True
         ' 
-        ' Button6
+        ' FoundItemName
         ' 
-        Button6.FlatStyle = FlatStyle.Flat
-        Button6.Location = New Point(462, 470)
-        Button6.Name = "Button6"
-        Button6.Size = New Size(107, 23)
-        Button6.TabIndex = 25
-        Button6.Text = "Export"
-        Button6.UseVisualStyleBackColor = True
+        FoundItemName.HeaderText = "ItemName"
+        FoundItemName.Name = "FoundItemName"
+        FoundItemName.ReadOnly = True
+        ' 
+        ' FoundCategory
+        ' 
+        FoundCategory.HeaderText = "Category"
+        FoundCategory.Name = "FoundCategory"
+        FoundCategory.ReadOnly = True
+        ' 
+        ' FoundLocation
+        ' 
+        FoundLocation.HeaderText = "Location"
+        FoundLocation.Name = "FoundLocation"
+        FoundLocation.ReadOnly = True
+        ' 
+        ' FoundDate
+        ' 
+        FoundDate.HeaderText = "Date"
+        FoundDate.Name = "FoundDate"
+        FoundDate.ReadOnly = True
+        ' 
+        ' FoundStatus
+        ' 
+        FoundStatus.HeaderText = "Status"
+        FoundStatus.Name = "FoundStatus"
+        FoundStatus.ReadOnly = True
         ' 
         ' MyReports
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        AutoScroll = True
         ClientSize = New Size(838, 515)
-        Controls.Add(Button6)
-        Controls.Add(Button5)
-        Controls.Add(Button4)
-        Controls.Add(dgvReports)
+        Controls.Add(foundReportsGrid)
+        Controls.Add(lostReportsGrid)
         Controls.Add(Panel2)
         Controls.Add(Panel1)
         Controls.Add(Label5)
@@ -660,7 +678,8 @@ Partial Class MyReports
         Panel1.PerformLayout()
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
-        CType(dgvReports, ComponentModel.ISupportInitialize).EndInit()
+        CType(lostReportsGrid, ComponentModel.ISupportInitialize).EndInit()
+        CType(foundReportsGrid, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -687,32 +706,35 @@ Partial Class MyReports
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label8 As Label
+    Friend WithEvents claimedCountLbl As Label
+    Friend WithEvents foundCountLbl As Label
+    Friend WithEvents lostCountLbl As Label
+    Friend WithEvents totalReportsLbl As Label
+    Friend WithEvents totalReportsNumber As Label
+    Friend WithEvents foundCount As Label
+    Friend WithEvents claimedCount As Label
+    Friend WithEvents lostCount As Label
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents reportTypeComboBox As ComboBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents generateBtn As Button
     Friend WithEvents Label14 As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents dgvReports As DataGridView
-    Friend WithEvents ReportID As DataGridViewTextBoxColumn
+    Friend WithEvents toDatePicker As DateTimePicker
+    Friend WithEvents fromDatePicker As DateTimePicker
+    Friend WithEvents lostReportsGrid As DataGridView
+    Friend WithEvents ItemID As DataGridViewTextBoxColumn
     Friend WithEvents ItemName As DataGridViewTextBoxColumn
-    Friend WithEvents ReportType As DataGridViewTextBoxColumn
     Friend WithEvents Category As DataGridViewTextBoxColumn
-    Friend WithEvents Location As DataGridViewTextBoxColumn
-    Friend WithEvents DateReported As DataGridViewTextBoxColumn
+    Friend WithEvents LocationLost As DataGridViewTextBoxColumn
+    Friend WithEvents DateLost As DataGridViewTextBoxColumn
     Friend WithEvents Status As DataGridViewTextBoxColumn
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button6 As Button
+    Friend WithEvents foundReportsGrid As DataGridView
+    Friend WithEvents FoundReportID As DataGridViewTextBoxColumn
+    Friend WithEvents FoundItemName As DataGridViewTextBoxColumn
+    Friend WithEvents FoundCategory As DataGridViewTextBoxColumn
+    Friend WithEvents FoundLocation As DataGridViewTextBoxColumn
+    Friend WithEvents FoundDate As DataGridViewTextBoxColumn
+    Friend WithEvents FoundStatus As DataGridViewTextBoxColumn
 End Class

@@ -28,7 +28,7 @@ Partial Class LostItems
         locationLabel = New Label()
         categoryPicker = New ComboBox()
         categoryLabel = New Label()
-        TextBox1 = New TextBox()
+        searchLostItem = New TextBox()
         Label5 = New Label()
         Panel9 = New Panel()
         dashboardBtn = New Button()
@@ -50,6 +50,16 @@ Partial Class LostItems
         PictureBox2 = New PictureBox()
         bckToLogin = New Button()
         Label4 = New Label()
+        lostItemsGrid = New DataGridView()
+        ItemID = New DataGridViewTextBoxColumn()
+        ItemName = New DataGridViewTextBoxColumn()
+        Category = New DataGridViewTextBoxColumn()
+        LocationLost = New DataGridViewTextBoxColumn()
+        Description = New DataGridViewTextBoxColumn()
+        DateLost = New DataGridViewTextBoxColumn()
+        Status = New DataGridViewTextBoxColumn()
+        Contact = New DataGridViewTextBoxColumn()
+        clearFilterBtn = New Button()
         Panel3.SuspendLayout()
         Panel9.SuspendLayout()
         CType(PictureBox9, ComponentModel.ISupportInitialize).BeginInit()
@@ -61,6 +71,7 @@ Partial Class LostItems
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(lostItemsGrid, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel3
@@ -69,11 +80,11 @@ Partial Class LostItems
         Panel3.Controls.Add(locationLabel)
         Panel3.Controls.Add(categoryPicker)
         Panel3.Controls.Add(categoryLabel)
-        Panel3.Controls.Add(TextBox1)
+        Panel3.Controls.Add(searchLostItem)
         Panel3.Controls.Add(Label5)
         Panel3.Location = New Point(210, 83)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(558, 395)
+        Panel3.Size = New Size(558, 157)
         Panel3.TabIndex = 2
         ' 
         ' locationPicker
@@ -114,13 +125,13 @@ Partial Class LostItems
         categoryLabel.TabIndex = 10
         categoryLabel.Text = "Category  :"
         ' 
-        ' TextBox1
+        ' searchLostItem
         ' 
-        TextBox1.Location = New Point(21, 60)
-        TextBox1.Name = "TextBox1"
-        TextBox1.PlaceholderText = "Search for a Lost item"
-        TextBox1.Size = New Size(430, 23)
-        TextBox1.TabIndex = 9
+        searchLostItem.Location = New Point(21, 60)
+        searchLostItem.Name = "searchLostItem"
+        searchLostItem.PlaceholderText = "Search for a Lost item"
+        searchLostItem.Size = New Size(430, 23)
+        searchLostItem.TabIndex = 9
         ' 
         ' Label5
         ' 
@@ -379,12 +390,87 @@ Partial Class LostItems
         Label4.TabIndex = 18
         Label4.Text = "LOST ITEMS"
         ' 
+        ' lostItemsGrid
+        ' 
+        lostItemsGrid.AllowUserToAddRows = False
+        lostItemsGrid.AllowUserToDeleteRows = False
+        lostItemsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        lostItemsGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        lostItemsGrid.Columns.AddRange(New DataGridViewColumn() {ItemID, ItemName, Category, LocationLost, Description, DateLost, Status, Contact})
+        lostItemsGrid.Location = New Point(210, 257)
+        lostItemsGrid.MultiSelect = False
+        lostItemsGrid.Name = "lostItemsGrid"
+        lostItemsGrid.ReadOnly = True
+        lostItemsGrid.RowHeadersVisible = False
+        lostItemsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        lostItemsGrid.Size = New Size(578, 150)
+        lostItemsGrid.TabIndex = 19
+        ' 
+        ' ItemID
+        ' 
+        ItemID.HeaderText = "Item ID"
+        ItemID.Name = "ItemID"
+        ItemID.ReadOnly = True
+        ' 
+        ' ItemName
+        ' 
+        ItemName.HeaderText = "Item Name"
+        ItemName.Name = "ItemName"
+        ItemName.ReadOnly = True
+        ' 
+        ' Category
+        ' 
+        Category.HeaderText = "Category"
+        Category.Name = "Category"
+        Category.ReadOnly = True
+        ' 
+        ' LocationLost
+        ' 
+        LocationLost.HeaderText = "LocationLost"
+        LocationLost.Name = "LocationLost"
+        LocationLost.ReadOnly = True
+        ' 
+        ' Description
+        ' 
+        Description.HeaderText = "Description"
+        Description.Name = "Description"
+        Description.ReadOnly = True
+        ' 
+        ' DateLost
+        ' 
+        DateLost.HeaderText = "Date Lost"
+        DateLost.Name = "DateLost"
+        DateLost.ReadOnly = True
+        ' 
+        ' Status
+        ' 
+        Status.HeaderText = "Status"
+        Status.Name = "Status"
+        Status.ReadOnly = True
+        ' 
+        ' Contact
+        ' 
+        Contact.HeaderText = "Contact"
+        Contact.Name = "Contact"
+        Contact.ReadOnly = True
+        ' 
+        ' clearFilterBtn
+        ' 
+        clearFilterBtn.Location = New Point(678, 424)
+        clearFilterBtn.Name = "clearFilterBtn"
+        clearFilterBtn.Size = New Size(110, 23)
+        clearFilterBtn.TabIndex = 22
+        clearFilterBtn.Text = "Clear Filters"
+        clearFilterBtn.UseVisualStyleBackColor = True
+        ' 
         ' LostItems
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(800, 498)
+        Controls.Add(clearFilterBtn)
+        Controls.Add(lostItemsGrid)
         Controls.Add(Label4)
         Controls.Add(Panel9)
         Controls.Add(Panel3)
@@ -402,6 +488,7 @@ Partial Class LostItems
         CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        CType(lostItemsGrid, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -410,7 +497,7 @@ Partial Class LostItems
     Friend WithEvents locationLabel As Label
     Friend WithEvents categoryPicker As ComboBox
     Friend WithEvents categoryLabel As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents searchLostItem As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Panel9 As Panel
     Friend WithEvents dashboardBtn As Button
@@ -432,4 +519,14 @@ Partial Class LostItems
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents bckToLogin As Button
     Friend WithEvents Label4 As Label
+    Friend WithEvents lostItemsGrid As DataGridView
+    Friend WithEvents ItemID As DataGridViewTextBoxColumn
+    Friend WithEvents ItemName As DataGridViewTextBoxColumn
+    Friend WithEvents Category As DataGridViewTextBoxColumn
+    Friend WithEvents LocationLost As DataGridViewTextBoxColumn
+    Friend WithEvents Description As DataGridViewTextBoxColumn
+    Friend WithEvents DateLost As DataGridViewTextBoxColumn
+    Friend WithEvents Status As DataGridViewTextBoxColumn
+    Friend WithEvents Contact As DataGridViewTextBoxColumn
+    Friend WithEvents clearFilterBtn As Button
 End Class

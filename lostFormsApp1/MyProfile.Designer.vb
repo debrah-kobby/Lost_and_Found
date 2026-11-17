@@ -45,15 +45,15 @@ Partial Class MyProfile
         Label5 = New Label()
         Label4 = New Label()
         Panel1 = New Panel()
-        Label1 = New Label()
-        Label2 = New Label()
-        Label3 = New Label()
+        UserID = New Label()
+        email = New Label()
+        fullname = New Label()
         Panel2 = New Panel()
-        Label7 = New Label()
-        Label8 = New Label()
+        dateregistered = New Label()
+        accountstatus = New Label()
         Label9 = New Label()
-        Label10 = New Label()
-        Label11 = New Label()
+        Label8 = New Label()
+        Label7 = New Label()
         Panel8.SuspendLayout()
         CType(PictureBox9, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox8, ComponentModel.ISupportInitialize).BeginInit()
@@ -326,49 +326,49 @@ Partial Class MyProfile
         ' 
         ' Panel1
         ' 
-        Panel1.Controls.Add(Label3)
-        Panel1.Controls.Add(Label2)
-        Panel1.Controls.Add(Label1)
+        Panel1.Controls.Add(UserID)
+        Panel1.Controls.Add(email)
+        Panel1.Controls.Add(fullname)
         Panel1.Location = New Point(218, 81)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(263, 125)
         Panel1.TabIndex = 23
         ' 
-        ' Label1
+        ' UserID
         ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(15, 13)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(81, 21)
-        Label1.TabIndex = 0
-        Label1.Text = "Full Name"
+        UserID.AutoSize = True
+        UserID.Font = New Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        UserID.Location = New Point(15, 90)
+        UserID.Name = "UserID"
+        UserID.Size = New Size(61, 21)
+        UserID.TabIndex = 2
+        UserID.Text = "User ID"
         ' 
-        ' Label2
+        ' email
         ' 
-        Label2.AutoSize = True
-        Label2.Font = New Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label2.Location = New Point(15, 50)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(108, 21)
-        Label2.TabIndex = 1
-        Label2.Text = "Email Address"
+        email.AutoSize = True
+        email.Font = New Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        email.Location = New Point(15, 50)
+        email.Name = "email"
+        email.Size = New Size(108, 21)
+        email.TabIndex = 1
+        email.Text = "Email Address"
         ' 
-        ' Label3
+        ' fullname
         ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label3.Location = New Point(15, 90)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(61, 21)
-        Label3.TabIndex = 2
-        Label3.Text = "User ID"
+        fullname.AutoSize = True
+        fullname.Font = New Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        fullname.Location = New Point(15, 13)
+        fullname.Name = "fullname"
+        fullname.Size = New Size(81, 21)
+        fullname.TabIndex = 0
+        fullname.Text = "Full Name"
         ' 
         ' Panel2
         ' 
         Panel2.BackColor = SystemColors.AppWorkspace
-        Panel2.Controls.Add(Label11)
-        Panel2.Controls.Add(Label10)
+        Panel2.Controls.Add(dateregistered)
+        Panel2.Controls.Add(accountstatus)
         Panel2.Controls.Add(Label9)
         Panel2.Controls.Add(Label8)
         Panel2.Controls.Add(Label7)
@@ -377,14 +377,31 @@ Partial Class MyProfile
         Panel2.Size = New Size(263, 74)
         Panel2.TabIndex = 26
         ' 
-        ' Label7
+        ' dateregistered
         ' 
-        Label7.AutoSize = True
-        Label7.Location = New Point(15, 8)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(93, 15)
-        Label7.TabIndex = 0
-        Label7.Text = "Account Status :"
+        dateregistered.AutoSize = True
+        dateregistered.Location = New Point(116, 40)
+        dateregistered.Name = "dateregistered"
+        dateregistered.Size = New Size(93, 15)
+        dateregistered.TabIndex = 4
+        dateregistered.Text = "Account Status :"
+        ' 
+        ' accountstatus
+        ' 
+        accountstatus.AutoSize = True
+        accountstatus.Location = New Point(114, 8)
+        accountstatus.Name = "accountstatus"
+        accountstatus.Size = New Size(93, 15)
+        accountstatus.TabIndex = 3
+        accountstatus.Text = "Account Status :"
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Location = New Point(15, 70)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(0, 15)
+        Label9.TabIndex = 2
         ' 
         ' Label8
         ' 
@@ -395,31 +412,14 @@ Partial Class MyProfile
         Label8.TabIndex = 1
         Label8.Text = "Date Registered :"
         ' 
-        ' Label9
+        ' Label7
         ' 
-        Label9.AutoSize = True
-        Label9.Location = New Point(15, 70)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(0, 15)
-        Label9.TabIndex = 2
-        ' 
-        ' Label10
-        ' 
-        Label10.AutoSize = True
-        Label10.Location = New Point(114, 8)
-        Label10.Name = "Label10"
-        Label10.Size = New Size(93, 15)
-        Label10.TabIndex = 3
-        Label10.Text = "Account Status :"
-        ' 
-        ' Label11
-        ' 
-        Label11.AutoSize = True
-        Label11.Location = New Point(116, 40)
-        Label11.Name = "Label11"
-        Label11.Size = New Size(93, 15)
-        Label11.TabIndex = 4
-        Label11.Text = "Account Status :"
+        Label7.AutoSize = True
+        Label7.Location = New Point(15, 8)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(93, 15)
+        Label7.TabIndex = 0
+        Label7.Text = "Account Status :"
         ' 
         ' MyProfile
         ' 
@@ -473,13 +473,13 @@ Partial Class MyProfile
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents UserID As Label
+    Friend WithEvents email As Label
+    Friend WithEvents fullname As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Label10 As Label
+    Friend WithEvents dateregistered As Label
+    Friend WithEvents accountstatus As Label
 End Class

@@ -14,9 +14,80 @@ Public Class ReportFoundItems
         timeFoundInput.Value = DateTime.Now
     End Sub
 
+
     Private Sub submitFormBtn_Click(sender As Object, e As EventArgs) Handles submitFormBtn.Click
-        MessageBox.Show("Successfully Reported a Found Item")
+
+        ' Get values from the form
+        Dim itemName As String = nameInput.Text.Trim()
+        Dim location As String = locationFoundInput.Text.Trim()
+        Dim description As String = itemDescriptionInput.Text.Trim()
+        Dim phoneNumber As String = phoneNumberInput.Text.Trim()
+        Dim email As String = emailInput.Text.Trim()
+
+        Dim category As String = ""
+
+        If categoryInput.SelectedItem IsNot Nothing Then
+            category = categoryInput.SelectedItem.ToString()
+        End If
+
+        ' Validate required fields
+        If itemName = "" OrElse
+       location = "" OrElse
+       description = "" OrElse
+       phoneNumber = "" OrElse
+       email = "" OrElse
+       category = "" Then
+
+            MessageBox.Show("Please fill in all fields before submitting.",
+                        "Missing Information",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Combine date and time
+        Dim dateFound As DateTime =
+        dateFoundInput.Value.Date.Add(timeFoundInput.Value.TimeOfDay)
+
+        Try
+
+            ' Save the found item to the database
+            Dim saved As Boolean = SaveFoundItem(
+            itemName,
+            category,
+            location,
+            description,
+            phoneNumber,
+            email,
+            dateFound
+        )
+
+            If saved Then
+                MessageBox.Show("Found item successfully reported!",
+                            "Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information)
+
+                clearFormBtn.PerformClick()
+
+            Else
+                MessageBox.Show("The item could not be saved. Please try again.",
+                            "Submission Failed",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error)
+            End If
+
+        Catch ex As Exception
+
+            MessageBox.Show("An error occurred while saving the item: " & ex.Message,
+                        "Database Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error)
+
+        End Try
+
     End Sub
+
 
     ' NAVIGATION
 

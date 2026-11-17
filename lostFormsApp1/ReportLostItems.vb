@@ -14,9 +14,72 @@ Public Class ReportLostItems
         timeLostPicker.Value = DateTime.Now
     End Sub
 
+
     Private Sub submitformBtn_Click(sender As Object, e As EventArgs) Handles submitformBtn.Click
-        MessageBox.Show("Successfully Reported a Lost Item")
+
+        ' Get form information
+        Dim itemName As String = nameInput.Text.Trim()
+        Dim location As String = locationInput.Text.Trim()
+        Dim description As String = descriptionInput.Text.Trim()
+        Dim phoneNumber As String = phonenumberInput.Text.Trim()
+        Dim email As String = emailInput.Text.Trim()
+
+        ' Check category selection
+        If categoryPicker.SelectedItem Is Nothing Then
+            MessageBox.Show("Please select an item category.")
+            Return
+        End If
+
+        Dim category As String = categoryPicker.SelectedItem.ToString()
+
+        ' Validate required fields
+        If itemName = "" OrElse location = "" OrElse
+       description = "" OrElse phoneNumber = "" OrElse
+       email = "" Then
+
+            MessageBox.Show("Please fill in all fields.")
+            Return
+
+        End If
+
+        ' Combine date and time
+        Dim dateLost As DateTime =
+        dateLostPicker.Value.Date.Add(timeLostPicker.Value.TimeOfDay)
+
+        Try
+
+            ' Save report to SQLite
+            Dim saved As Boolean = SaveLostItem(
+            itemName,
+            category,
+            location,
+            description,
+            phoneNumber,
+            email,
+            dateLost
+        )
+
+            If saved Then
+
+                MessageBox.Show("Lost item successfully reported!")
+
+                ' Clear form after successful submission
+                clearFormBtn.PerformClick()
+
+            Else
+
+                MessageBox.Show("Unable to save your report.")
+
+            End If
+
+        Catch ex As Exception
+
+            MessageBox.Show("Error saving report: " & ex.Message)
+
+        End Try
+
     End Sub
+
 
     ' NAVIGATION
 

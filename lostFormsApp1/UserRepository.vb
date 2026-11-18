@@ -672,4 +672,197 @@ Module UserRepository
 
     End Function
 
+
+    ' ==========================================
+    ' GET ALL PENDING CLAIMS FOR ADMIN
+    ' ==========================================
+    Public Function GetPendingClaims() As DataTable
+
+        Dim claimsTable As New DataTable()
+
+        Using connection As New SqliteConnection(ConnectionString)
+
+            connection.Open()
+
+            Dim query As String =
+                "SELECT Claims.ClaimID, " &
+                "Claims.FoundItemID, " &
+                "Users.StudentID, " &
+                "Users.FirstName || ' ' || Users.LastName AS StudentName, " &
+                "FoundItems.ItemName, " &
+                "FoundItems.Category, " &
+                "FoundItems.LocationFound, " &
+                "FoundItems.DateFound, " &
+                "Claims.Reason, " &
+                "Claims.DateClaimed, " &
+                "Claims.Status " &
+                "FROM Claims " &
+                "INNER JOIN Users ON Claims.UserID = Users.UserID " &
+                "INNER JOIN FoundItems ON Claims.FoundItemID = FoundItems.FoundItemID " &
+                "WHERE Claims.Status = 'Pending' " &
+                "ORDER BY Claims.DateClaimed ASC"
+
+            Using command As New SqliteCommand(query, connection)
+
+                Using reader As SqliteDataReader = command.ExecuteReader()
+                    claimsTable.Load(reader)
+                End Using
+
+            End Using
+
+        End Using
+
+        Return claimsTable
+
+    End Function
+
+
+    ' ==========================================
+    ' APPROVE A CLAIM
+    ' ==========================================
+    Public Function ApproveClaim(claimID As Integer) As Boolean
+
+        Using connection As New SqliteConnection(ConnectionString)
+
+            connection.Open()
+
+            Using transaction As SqliteTransaction = connection.BeginTransaction()
+
+                Try
+
+                    ' First, approve the selected pending claim
+                    ' only if its found item is still available.
+
+                    Dim approveQuery As String =
+                        "UPDATE Claims " &
+                        "SET Status = 'Approved' " &
+                        "WHERE ClaimID = @claimID " &
+                        "AND Status = 'Pending' " &
+                        "AND EXISTS (" &
+                        "SELECT 1 FROM FoundItems " &
+                        "WHERE FoundItems.FoundItemID = Claims.FoundItemID " &
+                        "AND FoundItems.Status = 'Available')"
+
+                    Using command As New SqliteCommand(
+                        approveQuery, connection, transaction)
+
+                        command.Parameters.AddWithValue("@claimID", claimID)
+
+                        If command.ExecuteNonQuery() = 0 Then
+                            transaction.Rollback()
+                            Return False
+                        End If
+
+                    End Using
+
+
+                    ' Change the found item's status to Claimed.
+
+                    Dim updateItemQuery As String =
+                        "UPDATE FoundItems " &
+                        "SET Status = 'Claimed' " &
+                        "WHERE FoundItemID = (" &
+                        "SELECT FoundItemID FROM Claims " &
+                        "WHERE ClaimID = @claimID) " &
+                        "AND Status = 'Available'"
+
+                    Using command As New SqliteCommand(
+                        updateItemQuery, connection, transaction)
+
+                        command.Parameters.AddWithValue("@claimID", claimID)
+
+                        If command.ExecuteNonQuery() = 0 Then
+                            transaction.Rollback()
+                            Return False
+                        End If
+
+                    End Using
+
+                    transaction.Commit()
+
+                    Return True
+
+                Catch ex As Exception
+
+                    transaction.Rollback()
+                    Throw
+
+                End Try
+
+            End Using
+
+        End Using
+
+    End Function
+
+
+    ' ==========================================
+    ' REJECT A CLAIM
+    ' ==========================================
+    Public Function RejectClaim(claimID As Integer) As Boolean
+
+        Using connection As New SqliteConnection(ConnectionString)
+
+            connection.Open()
+
+            Dim query As String =
+                "UPDATE Claims " &
+                "SET Status = 'Rejected' " &
+                "WHERE ClaimID = @claimID " &
+                "AND Status = 'Pending'"
+
+            Using command As New SqliteCommand(query, connection)
+
+                command.Parameters.AddWithValue("@claimID", claimID)
+
+                Return command.ExecuteNonQuery() > 0
+
+            End Using
+
+        End Using
+
+    End Function
+
+
+    ' ==========================================
+    ' GET ALL CLAIMS FOR ADMIN
+    ' ==========================================
+    Public Function GetAllClaims() As DataTable
+
+        Dim claimsTable As New DataTable()
+
+        Using connection As New SqliteConnection(ConnectionString)
+
+            connection.Open()
+
+            Dim query As String =
+                "SELECT Claims.ClaimID, " &
+                "Claims.FoundItemID, " &
+                "Users.StudentID, " &
+                "Users.FirstName || ' ' || Users.LastName AS StudentName, " &
+                "FoundItems.ItemName, " &
+                "FoundItems.Category, " &
+                "FoundItems.LocationFound, " &
+                "Claims.Reason, " &
+                "Claims.DateClaimed, " &
+                "Claims.Status " &
+                "FROM Claims " &
+                "INNER JOIN Users ON Claims.UserID = Users.UserID " &
+                "INNER JOIN FoundItems ON Claims.FoundItemID = FoundItems.FoundItemID " &
+                "ORDER BY Claims.ClaimID DESC"
+
+            Using command As New SqliteCommand(query, connection)
+
+                Using reader As SqliteDataReader = command.ExecuteReader()
+                    claimsTable.Load(reader)
+                End Using
+
+            End Using
+
+        End Using
+
+        Return claimsTable
+
+    End Function
+
 End Module

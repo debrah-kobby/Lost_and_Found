@@ -7,6 +7,7 @@ Public Class LoginForm
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitializeDatabase()
 
+
     End Sub
 
     Private Sub btnpassword_Click(sender As Object, e As EventArgs) Handles btnpassword.Click
